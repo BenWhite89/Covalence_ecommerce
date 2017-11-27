@@ -1,0 +1,79 @@
+/* Add a black background color to the top navigation */
+.topnav {
+    padding-top: 10px;
+    background-color: rgb(41, 72, 107);
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 30px 30px;
+    text-decoration: none;
+    font-size: 30px;
+}
+.topnav .logo{
+
+padding-bottom: 50px;
+padding-top: 40px;
+padding-right: 10px;
+
+   float: left;
+   height: auto;
+   width: 30%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 230px;
+ 
+   
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: rgb(88, 247, 247);
+    color: white;
+}
+
+.home{
+
+    background-image: url("../images/covalence-store-home-hero.jpg");
+    background-size: cover;
+    
+}
+.logo{
+
+    background-image: url("../images/Newlogo.png");
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.topnav .divider{
+
+    font-size: 30px;
+    float: left;
+}
+
+.topnav .cart{
+    
+    float: right;
+    font-size: 15px;
+    font-family: advent-pro, sans-serif;
+}
+.topnav .apparel{
+    float: left;
+    font-size: 15px;
+    font-family: advent-pro, sans-serif;
+}
+.topnav .misc{
+    float: left;
+    font-size: 15px;
+    font-family: advent-pro, sans-serif;
+}

@@ -1,13 +1,16 @@
 export declare namespace models {
     interface ICategory {
-
+        id: number,
+        name: string
     }
     interface IProduct {
-
-    }
-    interface IPurchase {
+        productId: number,
+        categoryId: number,
+        categoryName: string,
+        title: string,
+        description: string,
         price: number,
-        stripeTransactionId: string
+        imageUrl: string
     }
     interface IId {
         purchaseId: number

@@ -1,5 +1,7 @@
 import * as mysql from 'mysql';
 
+// establish connection to db
+// for now I'm using hard coded values that will be removed at launch
 export let pool = mysql.createPool({
     connectionLimit: 10,
     host: process.env.DATABASE_URL || 'localhost:3000',
@@ -8,6 +10,8 @@ export let pool = mysql.createPool({
     database: process.env.DATABASE_NAME || 'CovalenceOnlineStore'
 });
 
+// three functions used depending on the number of expected results
+// they all call the queryDB function in the same way, but they manipulate the resultset differently
 export function row(procedureName: string, args: Array<any>) {
     return queryDB(procedureName, args)
     .then(function(resultsets: any) {
@@ -29,6 +33,7 @@ export function empty(procedureName: string, args: Array<any>) {
     });
 }
 
+// creates a Promise which runs the desired query with supplied arguments
 function queryDB(procedureName: string, args: Array<any>) {
     return new Promise(function(fulfill, reject) {
         pool.getConnection(function(err, connection) {
@@ -50,6 +55,7 @@ function queryDB(procedureName: string, args: Array<any>) {
     })
 }
 
+// used to determine the number of ?s when constructing the query call
 function placeholder(args: Array<any>) {
     let placeholders = '';
     if (args && args.length > 0) {

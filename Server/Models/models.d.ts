@@ -6,6 +6,10 @@ export declare namespace models {
 
     }
     interface IPurchase {
-        
+        price: number,
+        stripeTransactionId: string
+    }
+    interface IId {
+        purchaseId: number
     }
 }

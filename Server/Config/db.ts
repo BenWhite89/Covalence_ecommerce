@@ -3,9 +3,9 @@ import * as mysql from 'mysql';
 export let pool = mysql.createPool({
     connectionLimit: 10,
     host: process.env.DATABASE_URL || 'localhost:3000',
-    user: process.env.DATABASE_USER || 'ecommerce',
-    password: process.env.DATABASE_PASSWORD || 'pippin',
-    database: process.env.DATABASE_NAME || 'Covalence_Ecommerce'
+    user: process.env.DATABASE_USER || 'covalence-user',
+    password: process.env.DATABASE_PASSWORD || 'Covalence1234',
+    database: process.env.DATABASE_NAME || 'CovalenceOnlineStore'
 });
 
 export function row(procedureName: string, args: Array<any>) {

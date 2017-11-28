@@ -1,5 +1,9 @@
 <div>
     <ul>
-        <li ng-repeat="product in products | filter:category">{{ product }}</li>
+        <li class="product" ng-style="{'float':'left', 'padding':'2em', 'list-style':'none'}" ng-repeat="product in products | filter:category">
+            <div ng-style="{'background-image':'url(./Images/{{product.imageUrl}})', 'height':'200px', 'width':'200px', 'background-size':'cover'}"></div>
+            <span>{{ product.title }}</span>
+            <span>{{ product.price }}</span>
+        </li>
     </ul>
 </div>

@@ -1,10 +1,10 @@
 <div>
     {{product}}
-    <div ng-style="{'float':'left', 'padding':'4em', 'padding-top':'8em'}"><img ng-src="../Images/{{product.imageUrl}}"></div>
-    <div ng-style="{'float':'left', 'padding-top':'8em'}">
+    <div ng-style="{'float':'left', 'width':'40%', 'padding':'4em', 'padding-top':'8em'}"><img ng-src="../Images/{{product.imageUrl}}" ng-style="{'width':'80%'}"></div>
+    <div ng-style="{'float':'left', 'width':'40%', 'padding-top':'8em'}">
         <span>{{product.price}}</span><br />
         <span>{{product.title}}</span><br />
         <span>{{product.description}}</span><br />
-        <button>ADD TO CART</button>
+        <button ng-click="addToCart()">ADD TO CART</button>
     </div>
 </div>

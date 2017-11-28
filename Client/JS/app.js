@@ -16,11 +16,11 @@ angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.di
                 controller: 'ContactController'
             })
             .when('/apparel', {
-                templateUrl: 'Views/apparel.html',
+                templateUrl: 'Views/category.html',
                 controller: 'CategoryController'
             })
             .when('/misc', {
-                templateUrl: 'Views/misc.html',
+                templateUrl: 'Views/category.html',
                 controller: 'CategoryController'
             })
             .when('/product/:id', {

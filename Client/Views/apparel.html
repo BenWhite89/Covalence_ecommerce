@@ -1,5 +1,11 @@
 apparel landing
-<div class="apparel" style="background-image: url(./Images/covalence-store-apparel-hero.jpg)">
+<div class="apparel" style="background-image: url('./Images/covalence-store-apparel-hero.jpg')">
 
 
+</div>
+
+<div>
+    <ul>
+        <li ng-repeat="product in products | filter:category">{{ product }}</li>
+    </ul>
 </div>

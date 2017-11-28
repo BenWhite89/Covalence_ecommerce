@@ -4,7 +4,7 @@ import * as mysql from 'mysql';
 // for now I'm using hard coded values that will be removed at launch
 export let pool = mysql.createPool({
     connectionLimit: 10,
-    host: process.env.DATABASE_URL || 'localhost:3000',
+    host: process.env.DATABASE_URL || 'localhost',
     user: process.env.DATABASE_USER || 'covalence-user',
     password: process.env.DATABASE_PASSWORD || 'Covalence1234',
     database: process.env.DATABASE_NAME || 'CovalenceOnlineStore'
@@ -41,6 +41,7 @@ function queryDB(procedureName: string, args: Array<any>) {
                 reject(err);
             } else {
                 let callString = `CALL ${procedureName} (${placeholder(args)});`;
+                console.log(callString);
                 connection.query(callString, args, function(err, resultsets) {
                     if (err) {
                         connection.release();

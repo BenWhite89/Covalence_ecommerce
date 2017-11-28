@@ -5,7 +5,11 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
     }])
 
     .controller('NavbarController', ['$scope', '$rootScope', 'CartService', function($scope, $rootScope, CartService) {
-     
+        $scope.openCart = function() {
+            $scope.cartList = CartService.getCart();
+            console.log()
+            //open Cart
+        }
     }])
 
     .controller('CartController', [function() {

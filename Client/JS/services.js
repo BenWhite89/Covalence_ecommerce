@@ -26,7 +26,6 @@ angular.module('store.services', [])
                 cartList.splice(index, 1);
                 getCount();
             }
-
         }
 
         function getTotal() {
@@ -38,6 +37,13 @@ angular.module('store.services', [])
         }
 
         function getCount() {
-            $rootScope.cartCount = cartList.length;
+            let count = cartList.length;
+
+            if (count) {
+                $rootScope.cartCount = count;
+            } else {
+                $rootScope.cartCount = 0;
+            }
+
         }
     }])

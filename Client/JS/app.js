@@ -23,7 +23,7 @@ angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.di
                 templateUrl: 'Views/category.html',
                 controller: 'CategoryController'
             })
-            .when('/product/:id', {
+            .when('/:id/product', {
                 templateUrl: 'Views/single.html',
                 controller: 'SingleController'
             })

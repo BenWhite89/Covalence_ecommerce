@@ -4,8 +4,8 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
     }])
 
-    .controller('NavbarController', ['$scope', 'CartService', function($scope, CartService) {
-        $scope.cartCount = CartService.getCount();
+    .controller('NavbarController', ['$scope', '$rootScope', 'CartService', function($scope, $rootScope, CartService) {
+     
     }])
 
     .controller('CartController', [function() {

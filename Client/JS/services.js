@@ -1,5 +1,5 @@
 angular.module('store.services', [])
-    .service('CartService', [function() {
+    .service('CartService', ['$rootScope', function($rootScope) {
         let cartList = [];
 
         return {
@@ -16,6 +16,7 @@ angular.module('store.services', [])
 
         function addItem(product) {
             cartList.push(product);
+            getCount();
         }
 
         function deleteItem(product) {
@@ -23,7 +24,9 @@ angular.module('store.services', [])
 
             if (index > -1) {
                 cartList.splice(index, 1);
+                getCount();
             }
+
         }
 
         function getTotal() {
@@ -35,6 +38,6 @@ angular.module('store.services', [])
         }
 
         function getCount() {
-            return cartList.length;
+            $rootScope.cartCount = cartList.length;
         }
     }])

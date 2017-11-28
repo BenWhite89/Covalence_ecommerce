@@ -20,8 +20,10 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
         })
     }])
 
-    .controller('SingleController', [function() {
-
+    .controller('SingleController', ['$scope', '$location', '$routeParams', 'Product', function($scope, $location, $routeParams, Product) {
+        Product.get({ id: $routeParams.id}, function(data) {
+            $scope.product = data;
+        })
     }])
 
     .controller('ContactController', [function() {

@@ -77,3 +77,57 @@ padding-right: 10px;
     font-size: 15px;
     font-family: advent-pro, sans-serif;
 }
+.navlogo{
+max-width: 100%;
+max-height: 100%;
+}
+
+.container-fluid{
+    color: rgba(19,28,33);
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+    height: 100px;
+    width: 300px;
+    background-image: url("/Users/Bran/Desktop/storeproject/Covalence_ecommerce/Client/Images/Newlogo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: rgb(59, 57, 57);
+}
+#custom-bootstrap-menu.navbar-default {
+    font-family: 'Rubik', sans-serif;
+    font-size: 19px;
+    background-color: rgba(35, 57, 68,0.5);
+    border-bottom-width: 3px;
+    /* opacity: 0.4; */
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(94, 198, 219, 1);
+    background-color: rgba(19, 28, 33);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(51, 51, 51, 1);
+    background-color: rgba(19, 28, 33);
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(85, 85, 85, 1);
+    background-color: rgba(19, 28, 33);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: rgba(19,28,33);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: rgba(19,28,33);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: rgba(19,28,33);
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: rgba(19,28,33);
+}

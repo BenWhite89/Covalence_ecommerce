@@ -144,3 +144,32 @@ max-height: 100%;
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
     background-color: rgba(19,28,33);
 }
+
+.btn{
+
+    background-color:rgb(94, 198, 219);
+    
+    font-family: 'Rubik', sans-serif;
+    font-size: 19px;
+
+   
+    
+
+}
+.txt{
+
+   
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    
+    font-size: 50px
+}
+
+.shopbtn{
+    
+    margin-top: 300px;
+    margin-bottom:    50px;
+    float: left;
+    margin-right: 150px;
+    margin-left: 150px;
+}

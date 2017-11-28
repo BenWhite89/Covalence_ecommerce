@@ -1,51 +1,36 @@
-angular.module('store', ['ngRoute', 'ngResource'])
+angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.directives', 'store.factories'])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
-        // $locationProvider.html5Mode({
-        //     enabled: true,
-        //     requireBase: false
-        // });
-        //$locationProvider.hashPrefix('!');
-
         $locationProvider.html5Mode(true);
-        
+
         $routeProvider
             .when('/', {
-                templateUrl: 'views/home.html',
-                // controller: 'homeController'
-               
+                templateUrl: 'Views/home.html',
+                controller: 'HomeController'
             })
-            // .when('/apparel', {
-            //     templateUrl: 'views/apparel.html',
-            //     controller: 'apparelController'
-            // })
-            // .when('/misc', {
-            //     templateUrl: 'views/misc.html',
-            //     controller: 'miscController',
-            // })
-    
-            // .when('/:id', {
-            //     templateUrl: 'views/single.html',
-            //     controller: 'singleController'
-            // })
-      
-            //     .when('/contact',{
-            //     templateUrl:'views/contact.html',
-            //     controller:'contactController'
-            // })
+            .when('/cart', {
+                templateUrl: 'Views/cart.html',
+                controller: 'CartController'
+            })
+            .when('/contact', {
+                templateUrl: 'Views/contact.html',
+                controller: 'ContactController'
+            })
+            .when('/apparel', {
+                templateUrl: 'Views/apparel.html',
+                controller: 'CategoryController'
+            })
+            .when('/misc', {
+                templateUrl: 'Views/misc.html',
+                controller: 'CategoryController'
+            })
+            .when('/product/:id', {
+                templateUrl: 'Views/single.html',
+                controller: 'SingleController'
+            })
+            .otherwise({
+                redirectTo: '/home'
+            });
 
-            // .when('/cart',{
-            //     templateUrl: 'views/cart.html',
-            //     controller: 'cartController'
-            // })
-            // .when('/userlist', {
-            //     templateUrl: 'views/userlist.html',
-            //     controller: 'UserListController'
-            // })
-           
-            // .otherwise({
-            //     redirectTo: '/home'
-            // });
-        
     }])

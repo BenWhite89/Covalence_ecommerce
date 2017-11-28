@@ -8,18 +8,18 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
     }])
 
-    .controller('cartController', [function() {
+    .controller('CartController', [function() {
 
     }])
 
-    .controller('categoryController', [function() {
+    .controller('CategoryController', [function() {
 
     }])
 
-    .controller('singleProductController', [function() {
+    .controller('SingleController', [function() {
 
     }])
 
-    .contact('contactController', [function() {
+    .contact('ContactController', [function() {
 
     }])

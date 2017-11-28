@@ -6,5 +6,5 @@ export function createPurchase(stripeId: string, price: number): Promise<models.
 }
 
 export function createPurchasesProducts(productId: number, purchaseId: number) {
-    return db.empty('createPurchasedProducts', [productId, purchaseId]);
+    return db.empty('CreatePurchasesProducts', [productId, purchaseId]);
 }

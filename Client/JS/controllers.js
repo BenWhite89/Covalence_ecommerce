@@ -20,6 +20,6 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
     }])
 
-    .contact('ContactController', [function() {
+    .controller('ContactController', [function() {
 
-    }])
+    }]);

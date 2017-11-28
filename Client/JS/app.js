@@ -1,9 +1,7 @@
 angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.directives', 'store.factories'])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
-        $locationProvider.html5Mode(true);
-
+        console.log('begin')
         $routeProvider
             .when('/', {
                 templateUrl: 'Views/home.html',
@@ -30,7 +28,10 @@ angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.di
                 controller: 'SingleController'
             })
             .otherwise({
-                redirectTo: '/home'
+                redirectTo: '/'
             });
+
+            $locationProvider.html5Mode(true);
+            
 
     }])

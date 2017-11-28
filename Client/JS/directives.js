@@ -1,6 +1,6 @@
 angular.module('store.directives', ['ngRoute', 'store.controllers'])
 
-    .directive('StoreNav', [function() {
+    .directive('storeNav', [function() {
         return {
             restrict: 'E',
             templateUrl: '../Views/navbar.html',

@@ -4,56 +4,46 @@
 
 <head>
     <title>Covalence Store</title>
-    <!-- <metaname="fragment"content="!"></metaname>
-    <meta property="og:title" content="{{ seo.title }}">
-    <meta property="twitter:title" content="{{seo.title}}">
-    <meta property="og:image" content="{{ seo.image }}">
-    <meta property="twitter:image" content="{{seo.image}}">
-    <meta property="og:url" content="{{ seo.url }}">
-    <meta property="twitter:url" content="{{ seo.url }}">
-    <meta property="description" content="{{ seo.description }}">
-    <meta property="og:description" content="{{ seo.description }}">
-    <meta property="twitter:description" content="{{ seo.description }}"> -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-   
-   
-    
-    
-    
-    <script src="//use.edgefonts.net/advent-pro.js"></script>
+    <base href='/'>
+    <meta charset="UTF-8">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, Chrome=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular-resource.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
         crossorigin="anonymous"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
     <link rel='stylesheet' type='text/css' href='index.css'/>
-    <script src="app.js"></script>    
-    <script src="controllers.js"></script>   
-    
-    <base href='/'>    
+    <script src="JS/app.js"></script>
+    <script src="JS/controllers.js"></script>
+    <script src="JS/directives.js"></script>
+    <script src="JS/factories.js"></script>
+
+
 </head>
-<header>
-    <div class="topnav" id="myTopnav">
-        <a class="logo"> <img src="./Images/Newlogo.png" height="8px" width="8px"></a>
-        <a class="cart" ng-href="/cart">CART</a>
-        <a class="divider"> | </a>
-        
-
-        <a class="apparel" ng-href="/apparel">APPAREL</a>
-        <a class="misc" ng-href="/misc">MISC</a>
-        
-        
-        
-      </div>
-            
-</header>
-
-
 <body>
+    <header>
+        <div class="topnav" id="myTopnav">
+            <a class="logo"> <img src="./Images/Newlogo.png" height="8px" width="8px"></a>
+            <a class="cart" ng-href="/cart">CART</a>
+            <a class="divider"> | </a>
+
+
+            <a class="apparel" ng-href="/apparel">APPAREL</a>
+            <a class="misc" ng-href="/misc">MISC</a>
+
+
+
+        </div>
+
+    </header>
+
+
+
     <div ng-view></div>
 </body>
 

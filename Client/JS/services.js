@@ -16,7 +16,18 @@ angular.module('store.services', [])
 
         function addItem(product) {
 
-            cartList.push(product);
+            if (!cartList[0]) {
+                cartList.push(product);
+            } else {
+                let index = findInArray(cartList, product.productId);
+
+                if (index !== null) {
+                    cartList[index].count += 1;
+                } else {
+                    cartList.push(product);
+                }
+                
+            }
             getCount();
         }
 
@@ -32,13 +43,17 @@ angular.module('store.services', [])
         function getTotal() {
             let total = 0;
             cartList.forEach(function(element) {
-                total += element.price;
+                total += (element.price * element.count);
             })
             return total;
         }
 
         function getCount() {
-            let count = cartList.length;
+            let count = 0;
+
+            for (let i = 0; i < cartList.length; i++) {
+                count += cartList[i].count;
+            }
 
             if (count) {
                 $rootScope.cartCount = count;
@@ -58,4 +73,3 @@ angular.module('store.services', [])
         }
     }])
 
-    

@@ -26,12 +26,8 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
             $scope.product.count = 1;
         })
 
-        console.log(CartService.getCart());
-
         $scope.addToCart = function() {
             CartService.addItem($scope.product);
-            console.log(CartService.getCart());
-            console.log(CartService.getTotal());
         }
     }])
 
@@ -45,37 +41,13 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
         //card.mount('#card-field');
 
-        let products = CartService.getCart();
-        productList = [products[0]];
-        for (i = 1; i < products.length; i++) {
+        $scope.products = CartService.getCart();
 
-            let index = findInArray(productList, products[i].productId);
-            if (index) {
-                productList[index].count += 1;
-            } else {
-                productList.push(products[i]);
-            }
-        }
-
-        function findInArray(array, id) {
-            for (let i = 0; i < array.length; i++) {
-                if (array[i].productId === id) {
-                    return i;
-                }
-            }
-            return null;
-        }
-
-        $scope.productList = [];
-        productList.forEach(function(item) {
-            $scope.productList.push(item);
-        });
 
         $scope.purchase = {};
         $scope.purchase.total = CartService.getTotal();
 
-
-        $scope.submitPurchase = function() {
+        $scope.process = function() {
             if ($scope.purchase.method === "cc") {
                 // stripe.createToken(card).then((result) => {
                 // if (result.error) {

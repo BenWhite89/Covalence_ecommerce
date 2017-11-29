@@ -8,8 +8,8 @@ angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.di
                 controller: 'HomeController'
             })
             .when('/cart', {
-                templateUrl: 'Views/cart.html',
-                controller: 'CartController'
+                templateUrl: 'Views/checkout.html',
+                controller: 'CheckoutController'
             })
             .when('/contact', {
                 templateUrl: 'Views/contact.html',

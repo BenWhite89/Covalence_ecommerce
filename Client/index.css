@@ -44,12 +44,14 @@ padding-right: 10px;
 
 .home{
 
-  height: 800px;
-  width: 1500px;
+
 
     background-image: url("./Images/covalence-store-home-copy.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
+    
+    padding-bottom: 50%;
     
 }
 .logo{
@@ -107,6 +109,8 @@ max-height: 100%;
     background-size: contain;
     background-position: center;
     color: rgb(59, 57, 57);
+    margin-left: 15px;
+    margin-right: 100px;
 }
 #custom-bootstrap-menu.navbar-default {
     font-family: 'Rubik', sans-serif;
@@ -172,4 +176,35 @@ max-height: 100%;
     float: left;
     margin-right: 150px;
     margin-left: 150px;
+}
+.cartcnt{
+    height: 45px;
+    width:45px;
+    border-radius: 50%;
+    background-color: rgb(94,198,219);
+    color: white;
+    font-size: 30px;
+    padding-left: 9px;
+    margin-right: 5px;
+}
+
+.ftr{
+
+    margin-top: -40px
+}
+
+.ftrlogo{
+
+    margin-top: 5em;
+    height: 35px;
+    width:auto;
+    background-image: url("/Images/logo-footer.svg");
+    background-repeat: no-repeat;
+    
+}
+
+.ftrtext{
+  padding-bottom: 5em;
+  float: right;
+    
 }

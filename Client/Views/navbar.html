@@ -13,6 +13,10 @@
         <div class="collapse navbar-collapse navbar-menubuilder" style="color:rgb(19, 28, 33)">
             
             <ul class="nav navbar-nav navbar-center">
+
+                    <li>
+                            <a> | </a>
+                        </li>
                 
                 <li>
                     <a ng-href="/apparel">Apparel</a>
@@ -26,9 +30,12 @@
                     <a ng-href="/contact">Contact</a>
                 </li>
                 <li>
-                    <a ng-href="/cart">Cart</a>
-                    <span>{{ cartCount }}</span>
+                    <a ng-href="/cart">Cart
+                        
+                    </a>
+                   
                 </li>
+                <li><div class="cartcnt"> {{ cartCount }}</div></li>
             </ul>
         </div>
     </div>

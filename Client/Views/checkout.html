@@ -1,0 +1,73 @@
+<br /><br /><br /><br /><br /><br />
+<div ng-style="{'float':'left'}">
+    <form class="checkout" ng-submit="save">
+        <text class="chktext">Your Email</text>
+        <br />
+        <input class="addr" type="text" placeholder="email@example.com" ng-model="purchase.email">
+        <br /><br />
+        <text class="chktext">Your Billing Address</text>
+        <br />
+        <input class="addr" type="text" placeholder="First Name" ng-model="purchase.firstName">
+        <input class="addr" type="text" placeholder="Last Name" ng-model="purchase.lastName">
+        <br />
+        <input class="addr" type="text" placeholder="Company (optional)" ng-model="purchase.company">
+        <input class="addr" type="number" placeholder="phone #" ng-model="purchase.phone">
+        <br />
+        <input class="addr" type="text" placeholder="Address 1" ng-model="purchase.address1">
+        <input class="addr" type="text" placeholder="Address 2 (optional)" ng-model="purchase.address2">
+        <br />
+        <input class="addr" type="text" placeholder="City" ng-model="purchase.city">
+
+        <select name="state" ng-model="purchase.state">
+            <option ng-repeat="state in states" value="{{ state.abbreviation }}">{{ state.name }}</option>
+        </select><br />
+        <input class="addr" type="number" placeholder="zip code" ng-model="purchase.zip">
+        <select name="Country" ng-model="purchase.country">
+            <option value="USA">United States</option>
+            <option value="Canada">Canada</option>
+        </select><br /><br />
+
+        <text class="chktext">Payment Method</text><br />
+        <input type="radio" name="method" value="cc" ng-model="purchase.method" checked>Credit Card<br />
+
+        <label for="card-field">Credit Card</label>
+        <div id="card-field"></div>
+
+        <input type="radio" name="method" value="paypal" ng-model="purchase.method">Pay with PayPal<br /><br />
+
+        <p>{{ error }}</p><br />
+
+        <input type="submit" value="Donate">
+
+    </form>
+</div>
+<div ng-style="{'float':'left'}">
+
+
+</div>
+
+<div>
+    <h2>Your Shopping Cart</h2><br />
+    <a ng-href=""><button><< Cancel and continue Shopping</button></a><br />
+    {{productList}}
+    {{products}}
+    <ul>
+        <li ng-repeat="product in productList">
+            <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
+            <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
+            <span ng-style="{'float':'left'}" class="dec button">-</span>
+            <span ng-style="{'float':'left'}">{{ product.count }}</span>
+            <span ng-style="{'float':'left'}" class="inc button">+</span>
+            <button ng-click="remove()">Remove</button>
+        </li>
+    </ul>
+    <br />
+    <h2>Your Shopping Cart</h2>
+    <br />
+    <form class="discount">
+        <input type="text" ng-model="discountCode" placeholder="Discount Code">
+        <input type="submit" value="Apply">
+    </form>
+    <h4 >Order Total: </h4> <span ng-style="{'float':'left'}">{{ purchase.total }}</span>
+
+</div>

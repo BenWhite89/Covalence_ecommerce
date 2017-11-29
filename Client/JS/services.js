@@ -15,6 +15,7 @@ angular.module('store.services', [])
         }
 
         function addItem(product) {
+
             cartList.push(product);
             getCount();
         }
@@ -46,4 +47,15 @@ angular.module('store.services', [])
             }
 
         }
+
+        function findInArray(array, id) {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].productId === id) {
+                    return i;
+                }
+            }
+            return null;
+        }
     }])
+
+    

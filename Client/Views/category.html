@@ -3,12 +3,15 @@
 
     </div>
     <ul>
-        <li class="product" ng-style="{'float':'left', 'padding':'2em', 'list-style':'none'}" ng-repeat="product in products | filter:category">
+        <div class="product" ng-repeat="product in products | filter:category">
             <a ng-href="/{{ product.productId }}/product">
             <div ng-style="{'background-image':'url(./Images/{{product.imageUrl}})', 'height':'200px', 'width':'200px', 'background-size':'cover'}"></div>
             <span>{{ product.title }}</span>
-            <span>{{ product.price }}</span>
+            <span class="prdctprice">{{ product.price  | currency:undefined:0}}</span>
             </a>
-        </li>
+        </div>
     </ul>
 </div>
+<footer>
+        <store-Ftr></store-Ftr>
+        </footer>

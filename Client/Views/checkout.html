@@ -75,26 +75,26 @@
 
 <div class="cartview">
        
-        <h2>Your Shopping Cart</h2><br />
-        <<<a ng-href="/apparel"class="btn btn-default">Cancel & Continue Shopping</a>
-        <ul>
-            <li ng-repeat="product in products" ng-show="products !== undefined">
-                <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
-                <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
-                <span ng-style="{'float':'left'}" class="btn btn-default">-</span>
-                <span ng-style="{'float':'left'}">{{ product.count }}</span>
-                <span ng-style="{'float':'left'}" class="btn btn-default">+</span>
-                <button class="btn btn-default" ng-click="remove()">Remove</button>
-            </li>
-        </ul>
-        <br />
-        <h2>Order Summary</h2>
-        <br />
-        <form class="discount">
-            <input type="text" ng-model="discountCode" placeholder="Discount Code">
-            <input type="submit" value="Apply">
-        </form>
-        <h4 ng-style="{'float':'left'}">Order Total: </h4> <span ng-style="{'float':'left'}">{{ total }}</span>
+    <h2>Your Shopping Cart</h2><br />
+    <a ng-href="/apparel"class="btn btn-default">Cancel and Continue Shopping</a>
+    <ul>
+        <li ng-repeat="product in products" ng-show="products !== undefined">
+            <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
+            <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
+            <span ng-style="{'float':'left'}" class="btn btn-default">-</span>
+            <span ng-style="{'float':'left'}">{{ product.count }}</span>
+            <span ng-style="{'float':'left'}" class="btn btn-default">+</span>
+            <button class="btn btn-default" ng-click="remove()">Remove</button>
+        </li>
+    </ul>
+    <br />
+    <h2>Order Summary</h2>
+    <br />
+    <form class="discount">
+        <input type="text" ng-model="discountCode" placeholder="Discount Code">
+        <input type="submit" value="Apply">
+    </form>
+    <h4 ng-style="{'float':'left'}">Order Total: </h4> <span ng-style="{'float':'left'}">{{ total }}</span>
 
 
 </div>

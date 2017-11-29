@@ -1,7 +1,6 @@
 angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.directives', 'store.factories', 'store.services'])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        console.log('begin')
         $routeProvider
             .when('/', {
                 templateUrl: 'Views/home.html',
@@ -32,6 +31,5 @@ angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.di
             });
 
             $locationProvider.html5Mode(true);
-            
 
     }])

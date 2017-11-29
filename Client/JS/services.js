@@ -47,7 +47,7 @@ angular.module('store.services', [])
             // cartList.forEach(function(element) {
             //     total += (element.price * element.count);
             // })
-            return total;
+            return $rootScope.total;
         }
 
         function getCount() {

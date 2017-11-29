@@ -61,53 +61,55 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
     }])
 
     .controller('CheckoutController', ['$scope', 'Purchase', 'CartService', function($scope, Purchase, CartService) {
-        let elements = stripe.elements();
-        let card = elements.create('card');
+        // let elements = stripe.elements();
+        // let card = elements.create('card');
+        
+        
 
-        card.mount('#card-field');
+        // card.mount('#card-field');
 
         $scope.products = CartService.getCart();
 
 
         $scope.purchase = {};
-        $scope.purchase.total = CartService.getTotal();
+        $scope.total = CartService.getTotal();
 
-        $scope.process = function() {
-            if ($scope.purchase.method === "cc") {
+        // $scope.process = function() {
+        //     if ($scope.purchase.method === "cc") {
 
 
-                stripe.createToken(card).then((result) => {
-                if (result.error) {
-                    $scope.error = result.error.message;
-                } else {
-                    let purchase = new Purchase({
-                        token: result.token,
-                        amount: $scope.purchase.total
-                    })
-                    purchase.$save();
-                    $scope.error = ''
-                }
-                });
+        //         stripe.createToken(card).then((result) => {
+        //         if (result.error) {
+        //             $scope.error = result.error.message;
+        //         } else {
+        //             let purchase = new Purchase({
+        //                 token: result.token,
+        //                 amount: $scope.purchase.total
+        //             })
+        //             purchase.$save();
+        //             $scope.error = ''
+        //         }
+        //         });
 
-                //create customer object for email receipt
-                let message = ''
-                let receipt = new Contact({
-                    toEmail: $scope.customer.email,
-                    //subject: `Receipt for Order ${placeholder}`
-                    //message: message
-                })
+        //         //create customer object for email receipt
+        //         let message = ''
+        //         let receipt = new Contact({
+        //             toEmail: $scope.customer.email,
+        //             //subject: `Receipt for Order ${placeholder}`
+        //             //message: message
+        //         })
 
-                receipt.$get(function() {
-                    //nothing
-                }, function(err) {
-                    alert(err);
-                });
+        //         receipt.$get(function() {
+        //             //nothing
+        //         }, function(err) {
+        //             alert(err);
+        //         });
 
-                receipt
-            } else  {
-                $scope.error = "Sorry, we do not accept PayPal at this time."
-            }
-        }
+        //         receipt
+        //     } else  {
+        //         $scope.error = "Sorry, we do not accept PayPal at this time."
+        //     }
+        // }
 
         $scope.states = [
             {

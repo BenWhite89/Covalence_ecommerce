@@ -4,11 +4,21 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
     }])
 
-    .controller('NavbarController', ['$scope', '$rootScope', 'CartService', function($scope, $rootScope, CartService) {
-        $scope.openCart = function() {
-            $scope.cartList = CartService.getCart();
-            console.log()
-            //open Cart
+    .controller('NavbarController', ['$scope', '$rootScope', '$location', 'CartService', function($scope, $rootScope, $location, CartService) {
+        $scope.products = CartService.getCart();
+        console.log($scope.products);
+
+        $scope.openCartModal = function() {
+            $scope.display
+        }
+
+        $scope.closeCartModal = function() {
+            $scope.display = 'none';
+        }
+        
+        $scope.checkout = function() {
+            $location.url('/checkout');
+            $scope.closeCartModal();
         }
     }])
 
@@ -18,6 +28,7 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
         Product.query(function(data) {
             $scope.products = data;
         })
+
     }])
 
     .controller('SingleController', ['$scope', '$location', '$routeParams', 'Product', 'CartService', function($scope, $location, $routeParams, Product, CartService) {
@@ -31,8 +42,20 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
         }
     }])
 
-    .controller('ContactController', [function() {
+    .controller('ContactController', ['$scope', 'Contact', function($scope, Contact) {
+        $scope.send = function() {
+            let contact = new Contact({
+                fromEmail: $scope.email,
+                subject: $scope.subject,
+                message: $scope.message
+            })
 
+            contact.$save(function() {
+                alert('Thank you for your message. I will respond shortly.')
+            }, function(err) {
+                alert(err);
+            })
+        }
     }])
 
     .controller('CheckoutController', ['$scope', 'Purchase', 'CartService', function($scope, Purchase, CartService) {
@@ -65,10 +88,20 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
                 // });
 
                 //create customer object for email receipt
-                let reciept = new Contact({
-                    from: $scope.customer.email,
+                let message = ''
+                let receipt = new Contact({
+                    toEmail: $scope.customer.email,
                     //subject: `Receipt for Order ${placeholder}`
+                    //message: message
                 })
+
+                receipt.$get(function() {
+                    //nothing
+                }, function(err) {
+                    alert(err);
+                });
+
+                receipt
             } else  {
                 $scope.error = "Sorry, we do not accept PayPal at this time."
             }

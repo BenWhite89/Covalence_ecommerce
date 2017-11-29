@@ -11,13 +11,10 @@
         </div>
         <br>
         <div class="collapse navbar-collapse navbar-menubuilder" style="color:rgb(19, 28, 33)">
-            
             <ul class="nav navbar-nav navbar-center">
-
-                    <li>
-                            <a> | </a>
-                        </li>
-                
+                <li>
+                    <a> | </a>
+                </li>
                 <li>
                     <a ng-href="/apparel">Apparel</a>
                 </li>
@@ -30,13 +27,36 @@
                     <a ng-href="/contact">Contact</a>
                 </li>
                 <li>
-                    <a ng-href="/cart">Cart
-                        
-                    </a>
-                   
+                    <a data-toggle="modal" data-target="#cartModal">Cart</a>
                 </li>
-                <li><div class="cartcnt"> {{ cartCount }}</div></li>
+                <li>
+                    <div class="cartcnt"> {{ count > 0 ? count : "" }}</div>
+                </li>
             </ul>
+        </div>
+    </div>
+</div>
+
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <a data-dismiss="modal">Close</a>
+        </div>
+        <div class="modal-body">
+            <h3>Your Shopping Cart</h3>
+            <ul>
+                <li ng-repeat="product in products" ng-show="products !== undefined">
+                    <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
+                    <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
+                    <span ng-style="{'float':'left'}" class="dec button">-</span>
+                    <span ng-style="{'float':'left'}">{{ product.count }}</span>
+                    <span ng-style="{'float':'left'}" class="inc button">+</span>
+                    <button ng-click="remove()">Remove</button>
+                </li>
+            </ul>
+            <h3>Total Price </h3> <span>{{total}}</span>
+            <p>Taxes and fees included at checkout.</p><br />
+            <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button>CHECK OUT</button></a>
         </div>
     </div>
 </div>

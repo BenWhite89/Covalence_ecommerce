@@ -49,6 +49,8 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
         $scope.process = function() {
             if ($scope.purchase.method === "cc") {
+
+
                 // stripe.createToken(card).then((result) => {
                 // if (result.error) {
                 //     $scope.error = result.error.message;
@@ -58,8 +60,15 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
                 //         amount: $scope.purchase.total
                 //     })
                 //     purchase.$save();
+                //     $scope.error = ''
                 // }
                 // });
+
+                //create customer object for email receipt
+                let reciept = new Contact({
+                    from: $scope.customer.email,
+                    //subject: `Receipt for Order ${placeholder}`
+                })
             } else  {
                 $scope.error = "Sorry, we do not accept PayPal at this time."
             }

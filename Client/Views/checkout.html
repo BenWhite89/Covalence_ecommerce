@@ -1,32 +1,35 @@
 <br /><br /><br /><br /><br /><br />
 <div ng-style="{'float':'left'}">
     <form class="checkout" ng-submit="process()">
+        <span>1</span>
         <text class="chktext">Your Email</text>
         <br />
-        <input class="addr" type="text" placeholder="email@example.com" ng-model="purchase.email">
+        <input class="addr" type="text" placeholder="email@example.com" ng-model="customer.email">
         <br /><br />
+        <span>2</span>
         <text class="chktext">Your Billing Address</text>
         <br />
-        <input class="addr" type="text" placeholder="First Name" ng-model="purchase.firstName">
-        <input class="addr" type="text" placeholder="Last Name" ng-model="purchase.lastName">
+        <input class="addr" type="text" placeholder="First Name" ng-model="customer.firstName">
+        <input class="addr" type="text" placeholder="Last Name" ng-model="customer.lastName">
         <br />
-        <input class="addr" type="text" placeholder="Company (optional)" ng-model="purchase.company">
-        <input class="addr" type="number" placeholder="phone #" ng-model="purchase.phone">
+        <input class="addr" type="text" placeholder="Company (optional)" ng-model="customer.company">
+        <input class="addr" type="number" placeholder="phone #" ng-model="customer.phone">
         <br />
-        <input class="addr" type="text" placeholder="Address 1" ng-model="purchase.address1">
-        <input class="addr" type="text" placeholder="Address 2 (optional)" ng-model="purchase.address2">
+        <input class="addr" type="text" placeholder="Address 1" ng-model="customer.address1">
+        <input class="addr" type="text" placeholder="Address 2 (optional)" ng-model="customer.address2">
         <br />
-        <input class="addr" type="text" placeholder="City" ng-model="purchase.city">
+        <input class="addr" type="text" placeholder="City" ng-model="customer.city">
 
-        <select name="state" ng-model="purchase.state">
+        <select name="state" ng-model="customer.state">
             <option ng-repeat="state in states" value="{{ state.abbreviation }}">{{ state.name }}</option>
         </select><br />
-        <input class="addr" type="number" placeholder="zip code" ng-model="purchase.zip">
-        <select name="Country" ng-model="purchase.country">
+        <input class="addr" type="number" placeholder="zip code" ng-model="customer.zip">
+        <select name="Country" ng-model="customer.country">
             <option value="USA">United States</option>
             <option value="Canada">Canada</option>
         </select><br /><br />
 
+        <span>3</span>
         <text class="chktext">Payment Method</text><br />
         <input type="radio" name="method" value="cc" ng-model="purchase.method" checked>Credit Card<br />
 

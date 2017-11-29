@@ -50,19 +50,21 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
                 message: $scope.message
             })
 
-            contact.$save(function() {
-                alert('Thank you for your message. I will respond shortly.')
-            }, function(err) {
-                alert(err);
-            })
+            console.log(contact);
+
+            // contact.$save(function() {
+            //     alert('Thank you for your message. I will respond shortly.')
+            // }, function(err) {
+            //     alert(err);
+            // })
         }
     }])
 
     .controller('CheckoutController', ['$scope', 'Purchase', 'CartService', function($scope, Purchase, CartService) {
-        //let elements = stripe.elements();
-        //let card = elements.create('card');
+        let elements = stripe.elements();
+        let card = elements.create('card');
 
-        //card.mount('#card-field');
+        card.mount('#card-field');
 
         $scope.products = CartService.getCart();
 
@@ -74,18 +76,18 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
             if ($scope.purchase.method === "cc") {
 
 
-                // stripe.createToken(card).then((result) => {
-                // if (result.error) {
-                //     $scope.error = result.error.message;
-                // } else {
-                //     let purchase = new Purchase({
-                //         token: result.token,
-                //         amount: $scope.purchase.total
-                //     })
-                //     purchase.$save();
-                //     $scope.error = ''
-                // }
-                // });
+                stripe.createToken(card).then((result) => {
+                if (result.error) {
+                    $scope.error = result.error.message;
+                } else {
+                    let purchase = new Purchase({
+                        token: result.token,
+                        amount: $scope.purchase.total
+                    })
+                    purchase.$save();
+                    $scope.error = ''
+                }
+                });
 
                 //create customer object for email receipt
                 let message = ''

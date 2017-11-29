@@ -1,6 +1,6 @@
 
 
-<form class="checkout" ng-submit="save">
+<form class="form-control checkout" style="width: 20%" ng-submit="save">
     <text class="chktext">Your Email</text>
     <br>
     <input class="addr" type="text" placeholder="email@example.com" ng-bind="user.email">
@@ -15,7 +15,7 @@
    <input class="addr" type="text" placeholder="Address" ng-bind="user.address"> 
     <input class="addr" type="text" placeholder="City" ng-bind="user.city">
     
-    <select name="state">
+    <select class="form-control"name="state">
         <option value="VA">Virginia</option>
         <option value="AL">Alabama</option>
         <option value="KY">Kentucky</option>

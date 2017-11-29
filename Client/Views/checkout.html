@@ -1,17 +1,30 @@
 <br /><br /><br /><br /><br /><br />
+<div class="checkoutform">
+    <form class="form"ng-submit="process()">
+        <!-- <div class="form-group"> -->
+        <div class="chknum">1</div><text class="chktxt">Your Email</text>
+        
+        
+        <div class="cartmail">
 
-    <form class="form-inline chkform"ng-submit="process()">
-        <div class="form-group">
-        <div class="chknum">1</div>
-        <text class="chktxt">Your Email</text>
-        <br />
         <input class="form-control" type="text" placeholder="email@example.com" ng-model="customer.email">
-        <br /><br />
+        </div>
+
+
+        <br />
         <div class="chknum">2</div>
         <text class="chktxt">Your Billing Address</text>
         <br />
+
+        <div class="billaddr">
+        <div class="row">
+        <div class="col">
         <input class="form-control" type="text" placeholder="First Name" ng-model="customer.firstName">
+        </div>
+        <div class="col">
         <input class="form-control" type="text" placeholder="Last Name" ng-model="customer.lastName">
+        </div>
+        </div>
         <br />
         <input class="form-control" type="text" placeholder="Company (optional)" ng-model="customer.company">
         <input class="form-control" type="number" placeholder="phone #" ng-model="customer.phone">
@@ -29,7 +42,8 @@
             <option value="USA">United States</option>
             <option value="Canada">Canada</option>
         </select><br /><br />
-        </div>
+    </div>
+        
 
         <div class="chknum">3</div>
         
@@ -57,30 +71,33 @@
         
 
     </form>
+    
 
-<div ng-style="{'float':'left'}">
+<div class="cartview">
        
         <h2>Your Shopping Cart</h2><br />
-        <a ng-href=""><button><< Cancel and continue Shopping</button></a><br />
+        <<<a ng-href="/apparel"class="btn btn-default">Cancel & Continue Shopping</a>
         <ul>
             <li ng-repeat="product in products" ng-show="products !== undefined">
                 <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
                 <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
-                <span ng-style="{'float':'left'}" class="dec button">-</span>
+                <span ng-style="{'float':'left'}" class="btn btn-default">-</span>
                 <span ng-style="{'float':'left'}">{{ product.count }}</span>
-                <span ng-style="{'float':'left'}" class="inc button">+</span>
-                <button ng-click="remove()">Remove</button>
+                <span ng-style="{'float':'left'}" class="btn btn-default">+</span>
+                <button class="btn btn-default" ng-click="remove()">Remove</button>
             </li>
         </ul>
         <br />
-        <h2>Your Shopping Cart</h2>
+        <h2>Order Summary</h2>
         <br />
         <form class="discount">
             <input type="text" ng-model="discountCode" placeholder="Discount Code">
             <input type="submit" value="Apply">
         </form>
-        <h4 ng-style="{'float':'left'}">Order Total: </h4> <span ng-style="{'float':'left'}">{{ purchase.total }}</span>
+        <h4 ng-style="{'float':'left'}">Order Total: </h4> <span ng-style="{'float':'left'}">{{ total }}</span>
 
 
 </div>
+</div>
+
 

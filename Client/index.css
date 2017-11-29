@@ -152,9 +152,10 @@ max-height: 100%;
 .btn{
 
     background-color:rgb(94, 198, 219);
-    
+    color: white;
     font-family: 'Rubik', sans-serif;
-    font-size: 19px;
+    font-size: 15px;
+    font-weight: bold;
 
    
     
@@ -290,4 +291,38 @@ margin-bottom: 0%;
 height:100%;
 width: 100%;
     background-color: lightgray;
+}
+
+/* .billaddr{
+    /* margin-left: 50%a */
+
+
+.cartmail{
+
+  margin-right: 25%;
+    width: 50%;
+}
+
+.checkoutform{
+
+    width: 100%;
+}
+.cartview{
+    background-color: rgb(241, 240, 240);
+    height: 50em;
+    padding-right: 1em;
+    padding-left: 1em;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    margin-top: 10%;
+    font-family: 'Rubik',sans-serif;
+    font-weight: bold;
+    overflow-wrap: break-word;
+    font-size: 16px;
+   
+}
+.billaddr{
+
+    width: 50%;
 }

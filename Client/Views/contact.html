@@ -1,1 +1,16 @@
-contact landing 
+<br /><br /><br /><br /><br /><br />
+<div class="list" style="padding: 2em">
+    <form ng-submit="send()">
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" ng-model="email"/>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-control" ng-model="subject"/>
+            <label for="message">Message</label>
+            <textarea rows="5" class="form-control" id="message" ng-model="message"/>
+        </div>
+        <input type="submit" value="Send" class="btn btn-primary btn-lg" ng-disabled="email === '' || subject === '' || message === '' "/>
+    </form>
+</div>

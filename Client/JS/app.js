@@ -7,7 +7,7 @@ angular.module('store', ['ngRoute', 'ngResource', 'store.controllers', 'store.di
                 templateUrl: 'Views/home.html',
                 controller: 'HomeController'
             })
-            .when('/cart', {
+            .when('/checkout', {
                 templateUrl: 'Views/checkout.html',
                 controller: 'CheckoutController'
             })

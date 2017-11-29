@@ -1,6 +1,8 @@
 angular.module('store.services', [])
     .service('CartService', ['$rootScope', function($rootScope) {
         let cartList = [];
+        $rootScope.total = 0;
+        $rootScope.count = 0;
 
         return {
             getCart: getCart,
@@ -28,7 +30,8 @@ angular.module('store.services', [])
                 }
                 
             }
-            getCount();
+            $rootScope.count += 1;
+            $rootScope.total += product.price;
         }
 
         function deleteItem(product) {
@@ -41,25 +44,24 @@ angular.module('store.services', [])
         }
 
         function getTotal() {
-            let total = 0;
-            cartList.forEach(function(element) {
-                total += (element.price * element.count);
-            })
+            // cartList.forEach(function(element) {
+            //     total += (element.price * element.count);
+            // })
             return total;
         }
 
         function getCount() {
-            let count = 0;
+            return count;
 
-            for (let i = 0; i < cartList.length; i++) {
-                count += cartList[i].count;
-            }
+            // for (let i = 0; i < cartList.length; i++) {
+            //     count += cartList[i].count;
+            // }
 
-            if (count) {
-                $rootScope.cartCount = count;
-            } else {
-                $rootScope.cartCount = 0;
-            }
+            // if (count) {
+            //     $rootScope.cartCount = count;
+            // } else {
+            //     $rootScope.cartCount = 0;
+            // }
 
         }
 

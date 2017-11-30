@@ -295,19 +295,63 @@ max-height: 100%;
     border-style: solid;
     border-color: white;
     border-width: 2px;
-    background-color: rgb(245, 245, 245);
-    width: 100%;
+    width: 80%;
     max-height: 30%;
-    padding-left: 30%;
+    margin-left: 20%;
     z-index: 1;
-    
 }
+
+.ccBox {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid grey;
+    width: 100%;
+}
+
+.ccBox select {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;   
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.ccFields {
+    padding: 1em 2em 1em 2em;
+}
+
+.cvc {
+    width: 5em;
+}
+
+.ppBox {
+}
+
 .crdimg{
-margin-bottom: 0%;
-height:100%;
-width: 100%;
-    background-color: lightgray;
+    margin-bottom: 0%;
+    height:100%;
+    width: 100%;
     z-index: 1;
+}
+
+.ccRadio {
+    border-bottom: 1px solid grey;
+    background-color: lightgray;
+    height: 3em;
+    vertical-align: center;
+    padding: .7em 1em .6em 1em;
+}
+
+.crdimg img {
+    width: 3em;
+    height: auto;
+    padding-right: .3em;
+}
+
+.cardField {
+    padding-top: 1em;
+    background-color: none;
+
 }
 
 /* .billaddr{
@@ -327,25 +371,16 @@ width: 100%;
 
 .checkoutform{
 
-    width: 100%;
     z-index: 1;
 }
 .cartview{
     
     background-color: rgb(241, 240, 240);
-    height: 50em;
     padding-right: 1em;
     padding-left: 1em;
-    position: fixed;
-    top: 2%;
-    right: 0%;
-    margin-top: 10%;
     font-family: 'Rubik',sans-serif;
     font-weight: bold;
-    overflow-wrap: break-word;
     font-size: 16px;
-    border-radius: 25px;
-    z-index: 0;
    
 }
 .billaddr{
@@ -383,7 +418,7 @@ width: 100%;
 }
 .pmtbox{
 
-    width: 60%;
+    width: 100%;
 }
 
 /* Modal styling */
@@ -511,8 +546,10 @@ width: 100%;
 .checkoutContainer {
     border-radius: 5px;
     border: 1px lightgrey solid;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-top: 2em;
+    margin-left: 6%;
+    margin-right: 6%;
+    overflow: auto;
 }
 
 .form-inline {
@@ -521,4 +558,64 @@ width: 100%;
 
 .navftr {
     border: none;
+}
+
+.checkoutform {
+    position: relative;
+    display: table-cell;
+    width: 35%;
+    padding-right: 10%;
+    padding-left: 0;
+    left: 2em;
+}
+
+.cartview {
+    display: table-cell;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 100%;
+}
+
+.listItem {
+    padding-top: 1em;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.increment {
+    border-radius: 50%;
+}
+
+.submitBox {
+    width: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.form-inline input[type="submit"] {
+    display: inline-block;
+    position: relative;
+    border-radius: 2px;
+    border: none;
+    background-color: rgb(94,198,219);
+    color: white;
+    align-self: center;
+    height: 3em;
+    width: 14em;
+}
+
+.submitLabel {
+    display: inline-block;
+    position: relative;
+    text-align: center;
 }

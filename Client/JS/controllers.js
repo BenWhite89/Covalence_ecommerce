@@ -107,8 +107,14 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
         for (let i = 0; i < 20; i++) {
             $scope.years.push(now.getFullYear() + i);
         };
-        console.log($scope.years);
+        $scope.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        
 
+        $scope.card = {};
+
+        $scope.card.month = $scope.months[0];
+        $scope.card.year = $scope.years[0];
+        
         $scope.states = [
             {
                 name: "Alabama",

@@ -36,7 +36,6 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <br>
         <div class="collapse navbar-collapse navbar-menubuilder" style="color:rgb(19, 28, 33)">
             <ul class="nav navbar-nav navbar-center">
                 <li>
@@ -58,14 +57,26 @@
                 </li>
             </ul>
         </div>
-        <a data-toggle="modal" data-target="#cartModal" data-backdrop="fals">
-            <div class="cartcnt"> {{ count > 0 ? count : "" }}</div>
+        <a data-toggle="modal" data-target="#cartModal" data-backdrop="false">
+            <div class="cartcnt nav navbar-nav"> {{ count > 0 ? count : "" }}</div>
         </a>
     </div>
 </div>
 
 
 <style>
+    .cartcnt {
+        float: left;
+    }
+
+    .collapse {
+        float: left;
+    }
+
+    .navbar-header {
+        float: left;
+    }
+
     /* The Modal (background) */
     .cartModal {
         display: none; /* Hidden by default */

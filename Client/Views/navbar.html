@@ -1,3 +1,30 @@
+
+<div id="cartModal"  class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a data-dismiss="modal">Close</a>
+            </div>
+            <div class="modal-body">
+                <h3>Your Shopping Cart</h3>
+                <ul class="itemList">
+                    <li ng-repeat="product in products" ng-show="products !== undefined">
+                        <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
+                        <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
+                        <span ng-style="{'float':'left'}" class="dec button">-</span>
+                        <span ng-style="{'float':'left'}">{{ product.count }}</span>
+                        <span ng-style="{'float':'left'}" class="inc button">+</span>
+                        <button ng-click="remove()">Remove</button>
+                    </li>
+                </ul>
+                <h3>Total Price </h3> <span>{{total}}</span>
+                <p>Taxes and fees included at checkout.</p><br />
+                <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button>CHECK OUT</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -27,36 +54,115 @@
                     <a ng-href="/contact">Contact</a>
                 </li>
                 <li>
-                    <a data-toggle="modal" data-target="#cartModal">Cart</a>
-                </li>
-                <li>
-                    <div class="cartcnt"> {{ count > 0 ? count : "" }}</div>
+                    <a data-toggle="modal" data-target="#cartModal" data-backdrop="false" >Cart</a>
                 </li>
             </ul>
         </div>
+        <a data-toggle="modal" data-target="#cartModal" data-backdrop="fals">
+            <div class="cartcnt"> {{ count > 0 ? count : "" }}</div>
+        </a>
     </div>
 </div>
 
-<div id="cartModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <a data-dismiss="modal">Close</a>
-        </div>
-        <div class="modal-body">
-            <h3>Your Shopping Cart</h3>
-            <ul>
-                <li ng-repeat="product in products" ng-show="products !== undefined">
-                    <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
-                    <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
-                    <span ng-style="{'float':'left'}" class="dec button">-</span>
-                    <span ng-style="{'float':'left'}">{{ product.count }}</span>
-                    <span ng-style="{'float':'left'}" class="inc button">+</span>
-                    <button ng-click="remove()">Remove</button>
-                </li>
-            </ul>
-            <h3>Total Price </h3> <span>{{total}}</span>
-            <p>Taxes and fees included at checkout.</p><br />
-            <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button>CHECK OUT</button></a>
-        </div>
-    </div>
-</div>
+
+<style>
+    /* The Modal (background) */
+    .cartModal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 100; /* Sit on top */
+        right: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        border-radius: 0px;
+    }
+    
+    .modal-dialog {
+        height: 100%;
+        width: 100%;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        border-radius: 0px;
+        -webkit-animation-name: slideIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: slideIn;
+        animation-duration: 0.4s
+
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #e7f3ff;
+        position: fixed;
+        z-index:101;
+        right: 0;
+        top: 0;
+        border-radius: 0px;
+        height: 100%;
+        
+    }
+    
+    /* The Close Button */
+    .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .modal-header {
+        padding: 2px 16px;
+        background-color: #5aaab8;
+        color: white;
+        height: 10%;
+    }
+    
+    .modal-body {padding: 2px 16px;}
+    
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+        vertical-align: center;
+    }
+
+    .itemList {
+        padding-bottom: 2em;
+        border-bottom: 2px grey solid;
+    }
+
+    .modal-backdrop {
+        background-color: none;
+    }
+    
+    /* Add Animation */
+    @-webkit-keyframes slideIn {
+        from {right: -300px; opacity: 0} 
+        to {right: 0; opacity: 1}
+    }
+    
+    @keyframes slideIn {
+        from {right: -300px; opacity: 0}
+        to {right: 0; opacity: 1}
+    }
+    
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0} 
+        to {opacity: 1}
+    }
+    
+    @keyframes fadeIn {
+        from {opacity: 0} 
+        to {opacity: 1}
+    }
+    </style>

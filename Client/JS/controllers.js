@@ -7,14 +7,6 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
     .controller('NavbarController', ['$scope', '$rootScope', '$location', 'CartService', function($scope, $rootScope, $location, CartService) {
         $scope.products = CartService.getCart();
         console.log($scope.products);
-
-        $scope.openCartModal = function() {
-            $scope.display
-        }
-
-        $scope.closeCartModal = function() {
-            $scope.display = 'none';
-        }
         
         $scope.checkout = function() {
             $location.url('/checkout');
@@ -110,6 +102,12 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
         //         $scope.error = "Sorry, we do not accept PayPal at this time."
         //     }
         // }
+        $scope.years = [];
+        let now = new Date();
+        for (let i = 0; i < 20; i++) {
+            $scope.years.push(now.getFullYear() + i);
+        };
+        console.log($scope.years);
 
         $scope.states = [
             {

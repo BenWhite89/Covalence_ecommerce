@@ -1,7 +1,5 @@
 /* Add a black background color to the top navigation */
 .topnav {
-   
-   
     background-color: rgb(41, 72, 107);
     overflow: hidden;
     opacity: 0.5;
@@ -43,17 +41,19 @@ padding-right: 10px;
     color: white;
 }
 
-.home{
-
-
-
+.home {
+    position: absolute;
+    top: 0;
+    left: 0;
     background-image: url("./Images/covalence-store-home-copy.jpg");
-    background-size: cover;
+    background-position: 0 0;
     background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
     width: 100%;
-    
-    padding-bottom: 50%;
-    
+    height: 80%;
 }
 .logo{
 
@@ -94,9 +94,16 @@ max-height: 100%;
 }
 
 /* Ben added this from here */
+.navbar {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    z-index: 1;
+}
+
 .navbar .divider-vertical {
     height: 40px;
-    margin: 0 9px;
+    margin: 0;
     border-left: 1px solid #f2f2f2;
     border-right: 1px solid #ffffff;
     }
@@ -168,16 +175,14 @@ max-height: 100%;
     font-family: 'Rubik', sans-serif;
     color: white;
     
-    font-size: 50px
+    font-size: 40px
 }
 
 .shopbtn{
-    
-    margin-top: 300px;
-    margin-bottom:    50px;
+    position: relative;
     float: left;
-    margin-right: 150px;
-    margin-left: 150px;
+    padding-top: 10%;
+    left: 10%;
 }
 .cartcnt{
     height: 45px;
@@ -196,26 +201,28 @@ max-height: 100%;
 }
 
 .ftr{
-
-    margin-top: -40px;
-    
+    position: absolute;
+    height: 10%;
 }
 
 .ftrlogo{
 
     margin-top: 1em;
-    height: 35px;
-    width:auto;
+    height: 40px;
+    width: 20%;
     background-image: url("/Images/logo-footer.svg");
     background-repeat: no-repeat;
     margin-left: 1em;
     margin-bottom: 1em ;
+    vertical-align: center;
+    float: left;
     
 }
 
 .ftrtext{
   margin-top: 1em;
   float: right;
+  padding-right: 2em;
   
   
     
@@ -288,19 +295,63 @@ max-height: 100%;
     border-style: solid;
     border-color: white;
     border-width: 2px;
-    background-color: rgb(245, 245, 245);
-    width: 100%;
+    width: 80%;
     max-height: 30%;
-    padding-left: 30%;
+    margin-left: 20%;
     z-index: 1;
-    
 }
+
+.ccBox {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid grey;
+    width: 100%;
+}
+
+.ccBox select {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;   
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.ccFields {
+    padding: 1em 2em 1em 2em;
+}
+
+.cvc {
+    width: 5em;
+}
+
+.ppBox {
+}
+
 .crdimg{
-margin-bottom: 0%;
-height:100%;
-width: 100%;
-    background-color: lightgray;
+    margin-bottom: 0%;
+    height:100%;
+    width: 100%;
     z-index: 1;
+}
+
+.ccRadio {
+    border-bottom: 1px solid grey;
+    background-color: lightgray;
+    height: 3em;
+    vertical-align: center;
+    padding: .7em 1em .6em 1em;
+}
+
+.crdimg img {
+    width: 3em;
+    height: auto;
+    padding-right: .3em;
+}
+
+.cardField {
+    padding-top: 1em;
+    background-color: none;
+
 }
 
 /* .billaddr{
@@ -320,25 +371,16 @@ width: 100%;
 
 .checkoutform{
 
-    width: 100%;
     z-index: 1;
 }
 .cartview{
     
     background-color: rgb(241, 240, 240);
-    height: 50em;
     padding-right: 1em;
     padding-left: 1em;
-    position: fixed;
-    top: 2%;
-    right: 0%;
-    margin-top: 10%;
     font-family: 'Rubik',sans-serif;
     font-weight: bold;
-    overflow-wrap: break-word;
     font-size: 16px;
-    border-radius: 25px;
-    z-index: 0;
    
 }
 .billaddr{
@@ -376,5 +418,204 @@ width: 100%;
 }
 .pmtbox{
 
-    width: 60%;
+    width: 100%;
+}
+
+/* Modal styling */
+
+
+
+
+.cartcnt {
+    float: left;
+}
+
+.collapse {
+    float: left;
+}
+
+.navbar-header {
+    float: left;
+}
+
+/* The Modal (background) */
+.cartModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    right: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    border-radius: 0px;
+}
+
+.modal-dialog {
+    height: 100%;
+    width: 100%;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #e7f3ff;
+    position: fixed;
+    z-index:101;
+    right: 0;
+    top: 0;
+    border-radius: 0px;
+    height: 100%;
+    
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5aaab8;
+    color: white;
+    height: 10%;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+    vertical-align: center;
+}
+
+.itemList {
+    padding-bottom: 2em;
+    border-bottom: 2px grey solid;
+}
+
+.modal-backdrop {
+    background-color: none;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {right: -300px; opacity: 0} 
+    to {right: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {right: -300px; opacity: 0}
+    to {right: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+
+
+
+/* Ben's Checkout Styling */
+
+.checkoutContainer {
+    border-radius: 5px;
+    border: 1px lightgrey solid;
+    margin-top: 2em;
+    margin-left: 6%;
+    margin-right: 6%;
+    overflow: auto;
+}
+
+.form-inline {
+    margin-bottom: 10%;
+}
+
+.navftr {
+    border: none;
+}
+
+.checkoutform {
+    position: relative;
+    display: table-cell;
+    width: 35%;
+    padding-right: 10%;
+    padding-left: 0;
+    left: 2em;
+}
+
+.cartview {
+    display: table-cell;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 100%;
+}
+
+.listItem {
+    padding-top: 1em;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.increment {
+    border-radius: 50%;
+}
+
+.submitBox {
+    width: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.form-inline input[type="submit"] {
+    display: inline-block;
+    position: relative;
+    border-radius: 2px;
+    border: none;
+    background-color: rgb(94,198,219);
+    color: white;
+    align-self: center;
+    height: 3em;
+    width: 14em;
+}
+
+.submitLabel {
+    display: inline-block;
+    position: relative;
+    text-align: center;
 }

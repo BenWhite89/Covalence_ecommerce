@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content"style="background-color:white;">
             <div class="modal-header"style:"padding-bottom 20px">
-                <div style="color:rgb(221, 217, 204); font-weight:bolder; padding-top:20%;"data-dismiss="modal">Close</div>
+                <div style="color:rgb(239, 243, 246); font-weight:bolder; padding-top:20%;"data-dismiss="modal">Close</div>
             </div>
             <div style="padding: 3px"class="modal-body">
                 <h3>Your Shopping Cart</h3>
@@ -13,12 +13,12 @@
                        
                      <div class="cartimg"style="width:100%;float:left; padding: 10px;"><img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'margin':'10px','background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
                        <div class="cartdescrip"style="position: relative; top: 2%; right:0%;">
-                        <div style="color:rgb(151, 150, 150);font-size: 20px; font-weight:bolder;"ng-style="{'float':'top,right'}">{{ product.title }}</div><div style="color:cyan">{{product.price | currency}}</div><br /></div>
+                        <div style="color:rgb(151, 150, 150);font-size: 20px; font-weight:bolder;"ng-style="{'float':'top,right'}">{{ product.title }}</div><div style="color:rgb(62, 176,192)">{{product.price | currency}}</div><br /></div>
                         <div style="width: 100%;text-align: left;padding-right: 65%;"class="removebtn">
-                        <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(184, 115, 129);background-color:white"class="remove" ng-click="remove()">Remove</button>
+                        <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(225, 153, 159);background-color:white"class="remove" ng-click="remove()">Remove</button>
                         </div>
                     </div>
-                    </li>di
+                    </li>
                         <span ng-style="{'float':'left'}" class="dec button">-</span>
                         <span ng-style="{'float':'left'}">{{ product.count }}</span>
                         <span ng-style="{'float':'left'}" class="inc button">+</span>

@@ -205,11 +205,23 @@ max-height: 100%;
 
 .btn{
 
-    background-color:rgb(94, 198, 219);
+    background-color:rgb(62, 176, 192);
     color: white;
     font-family: 'Rubik', sans-serif;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: bolder;
+    border-spacing: 10em;
+    border-color: rgb(62, 176, 192);
+    border-radius: 3px;
+    margin-top: 10px;
+    padding-top: 1.1em;
+    padding-bottom: 1.1em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    text-align: center;
+    font-stretch:expanded;
+
+
 
    
     

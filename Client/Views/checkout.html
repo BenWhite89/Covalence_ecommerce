@@ -91,10 +91,10 @@
             <li class="listItem" ng-repeat="product in products" ng-show="products !== undefined">
                 <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
                 <span ng-style="{'float':'left'}">{{ product.title }}</span><br/> 
-                <button ng-style="{'float':'left'}" class="increment">-</button>
+                <button ng-style="{'float':'left'}" class="increment" ng-click="decreaseCount(product)">-</button>
                 <span class="checkoutCount" ng-style="{'float':'left'}">{{ product.count }}</span>
-                <button ng-style="{'float':'left'}" class="increment">+</button>
-                <button class="btn btn-default btn sm" ng-click="remove()">Remove</button>
+                <button ng-style="{'float':'left'}" class="increment" ng-click="increaseCount(product)">+</button>
+                <button class="btn btn-default btn sm" ng-click="deleteItem(product)">Remove</button>
             </li>
         </ul>
         <br />

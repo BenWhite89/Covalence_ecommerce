@@ -7,6 +7,7 @@ angular.module('store.services', [])
         return {
             getCart: getCart,
             addItem: addItem,
+            removeItem: removeItem,
             deleteItem: deleteItem,
             getTotal: getTotal,
             getCount: getCount
@@ -34,12 +35,35 @@ angular.module('store.services', [])
             $rootScope.total += product.price;
         }
 
-        function deleteItem(product) {
-            let index = cartList.findIndex(product);
+        function removeItem(product) {
+            let index = findInArray(cartList, product.productId);
+            console.log(index);
 
-            if (index > -1) {
+            if (index !== null && cartList[index].count > 1) {
+                console.log('1');
+                console.log(cartList);
+                cartList[index].count -= 1;
+                console.log(cartList);
+                $rootScope.count -= 1;
+                $rootScope.total -= product.price;
+            } else if(index !== null && cartList[index].count === 1) {
+                console.log('2');
+                console.log(cartList);
                 cartList.splice(index, 1);
-                getCount();
+                console.log(cartList);
+                $rootScope.count -= 1;
+                $rootScope.total -= product.price;
+            }
+        }
+
+        function deleteItem(product) {
+            let index = findInArray(cartList, product.productId);
+
+            if (index !== null) {
+                $rootScope.count -= cartList[index].count;
+                $rootScope.total -= (cartList[index].count * cartList[index].price);
+                cartList.splice(index,1);
+                
             }
         }
 

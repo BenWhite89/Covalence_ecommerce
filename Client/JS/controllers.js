@@ -12,6 +12,25 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
             $location.url('/checkout');
             $scope.closeCartModal();
         }
+
+        $scope.increaseCount = function(item) {
+            console.log(item)
+            CartService.addItem(item);
+            $scope.products = CartService.getCart();
+            $scope.total = CartService.getTotal();
+        }
+
+        $scope.decreaseCount = function(item) {
+            CartService.removeItem(item);
+            $scope.products = CartService.getCart();
+            $scope.total = CartService.getTotal();
+        }
+
+        $scope.deleteItem = function(item) {
+            CartService.deleteItem(item);
+            $scope.products = CartService.getCart();
+            $scope.total = CartService.getTotal();
+        }
     }])
 
     .controller('CategoryController', ['$scope', '$location', '$routeParams', 'Product', function($scope, $location, $routeParams, Product) {
@@ -65,6 +84,24 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
         $scope.purchase = {};
         $scope.total = CartService.getTotal();
+
+        $scope.increaseCount = function(item) {
+            CartService.addItem(item);
+            $scope.products = CartService.getCart();
+            $scope.total = CartService.getTotal();
+        }
+
+        $scope.decreaseCount = function(item) {
+            CartService.removeItem(item);
+            $scope.products = CartService.getCart();
+            $scope.total = CartService.getTotal();
+        }
+
+        $scope.deleteItem = function(item) {
+            CartService.deleteItem(item);
+            $scope.products = CartService.getCart();
+            $scope.total = CartService.getTotal();
+        }
 
         // $scope.process = function() {
         //     if ($scope.purchase.method === "cc") {

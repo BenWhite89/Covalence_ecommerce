@@ -1,11 +1,13 @@
-<div>
+<div style="overflow: auto; margin-bottom: 4em;">
     
-    <div class="product" ng-style="{'float':'left', 'width':'40%', 'padding':'4em', 'padding-top':'8em'}"><img ng-src="../Images/{{product.imageUrl}}" ng-style="{'width':'80%'}"></div>
-    <div class="singlev" ng-style="{'float':'left', 'width':'40%', 'padding-top':'8em'}">
-        <span>{{product.price | currency}}</span><br />
-        <span>{{product.title}}</span><br />
-        <span>{{product.description}}</span><br />
-        <button class="btn btn-lg btn-default" ng-click="addToCart()">ADD TO CART</button>
+    <div class="product" ng-style="{'float':'left','margin':'4em', 'padding':'0'}">
+        <img ng-src="../Images/{{product.imageUrl}}" ng-style="{'width':'300px', 'height':'300px'}">
+    </div>
+    <div ng-style="{'float':'left', 'width':'40%', 'height':'14em', 'margin-top':'5em', 'margin-left':'5em'}">
+        <span class="singlev">{{product.price | currency}}</span><br />
+        <span class="singlev">{{product.title}}</span><br />
+        <span style="font-size: 1em; margin-top: 1em; margin-bottom: 4em;">{{product.description}}</span><br />
+        <button style="margin-top: 2em;" class="btn btn-lg btn-default" ng-click="addToCart()">ADD TO CART</button>
     </div>
 </div>
 <store-Ftr></store-Ftr>

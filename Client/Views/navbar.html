@@ -17,12 +17,12 @@
                                     <span style="color:cyan; float: right; font-size: 1.2em; font-weight: bolder;">{{product.price | currency}}</span><br />
                                 </div>
                                 <div class="incrementbuttons">
-                                    <button ng-style="{'float':'left'}" class="increment">-</button>
-                                    <button ng-style="{'float':'left'}">{{ product.count }}</button>
-                                    <button ng-style="{'float':'left'}" class="increment">+</button>
+                                    <button ng-style="{'float':'left'}" class="increment" ng-click="decreaseCount(product)">-</button>
+                                    <span ng-style="{'float':'left', 'border':'1px lightslategrey solid', 'width':'2em', 'text-align':'center'}">{{ product.count }}</span>
+                                    <button ng-style="{'float':'left'}" class="increment" ng-click="increaseCount(product)">+</button>
                                 </div>
                                 <div class="removebtn">
-                                    <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(184, 115, 129);background-color:white"class="remove" ng-click="remove()">Remove</button>
+                                    <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(184, 115, 129);background-color:white"class="remove" ng-click="deleteItem(product)">Remove</button>
                                 </div>
                             </div>
                         

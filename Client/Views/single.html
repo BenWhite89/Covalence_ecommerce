@@ -1,4 +1,5 @@
-<!-- <div ng-style="{'width':'100%'}">
+<div>
+    
     <div class="product" ng-style="{'float':'left', 'width':'40%', 'padding':'4em', 'padding-top':'8em'}"><img ng-src="../Images/{{product.imageUrl}}" ng-style="{'width':'80%'}"></div>
     <div class="singlev" ng-style="{'float':'left', 'width':'40%', 'padding-top':'8em'}">
         <span>{{product.price | currency}}</span><br />
@@ -6,16 +7,5 @@
         <span>{{product.description}}</span><br />
         <button class="btn btn-lg btn-default" ng-click="addToCart()">ADD TO CART</button>
     </div>
-</div> -->
-
-<div ng-style="{'width':'100%'}">
-        <ul class="singleproduct">
-            <div class="product">
-                <div ng-style="{'background-image':'url(./Images/{{product.imageUrl}})', 'height':'300px', 'width':'300px', 'background-size':'cover'}"></div>
-                <span>{{ product.title }}</span>
-                <span class="prdctprice">{{ product.price  | currency:undefined:0}}</span><br/>
-                <span>{{product.description}}</span><br />
-            </div>
-        </ul>
-    </div>
+</div>
 <store-Ftr></store-Ftr>

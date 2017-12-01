@@ -1,74 +1,92 @@
-
 <div id="cartModal"  class="modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <a data-dismiss="modal">Close</a>
-            </div>
-            <div class="modal-body">
-                <h3>Your Shopping Cart</h3>
-                <ul class="itemList">
-                    <li class="listItem" ng-repeat="product in products" ng-show="products !== undefined">
-                        <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
-                        <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
-                        <span ng-style="{'float':'left'}" class="dec button">-</span>
-                        <span ng-style="{'float':'left'}">{{ product.count }}</span>
-                        <span ng-style="{'float':'left'}" class="inc button">+</span>
-                        <button ng-click="remove()">Remove</button>
-                    </li>
-                </ul>
-                <h3>Total Price </h3> <span>{{total}}</span>
-                <p>Taxes and fees included at checkout.</p><br />
-                <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button>CHECK OUT</button></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" ng-href="\"></a>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse navbar-menubuilder" style="color:rgb(19, 28, 33)">
-            <ul class="viewlist nav navbar-nav navbar-center">
-                <li>
-                    <a ng-href="/apparel">APPAREL</a>
-                </li>
-                <li>
-                    <a ng-href="/misc">MISC</a>
-                </li>
-                <li>
-                    <a ng-href="/contact">CONTACT</a>
-                </li>
-            </ul>
-        </div>
-        <a data-toggle="modal" data-target="#cartModal" data-backdrop="false">
-            <div class="pull-right">
-                <div class="cartlabel">
-                    <span>Cart</span>
+        <div class="modal-dialog">
+            <div class="modal-content"style="background-color:white;">
+                <div class="modal-header"style:"padding-bottom 20px">
+                    <div class="close" style="font-weight:bolder;"data-dismiss="modal">Close</div>
                 </div>
-                <div class="cartlogo nav navbar-nav">
-                    <div class="cartcnt">
-                        <div class="cartnbr">
-                            {{ count > 0 ? count : "" }}
-                        </div>
+                <div style="padding: 3px"class="modal-body">
+                    <h3>Your Shopping Cart</h3>
+                    <ul style="padding: 0px;"class="itemList">
+                        <li class="listItem" style="font-family: rubik; margin-bottom: 1em; height: 6em;" ng-repeat="product in products" ng-show="products !== undefined">
+                            <div class="cartimg"style="width:100%;float:left; padding: 10px;">
+                                <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'margin':'10px','background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
+                                <div class="cartdescrip"style="position: relative; top: 2%; right:0%; margin-bottom: 1em;">
+                                    <div style="color:rgb(151, 150, 150);font-size: 1.2em; font-weight:bolder; float: left;">
+                                    {{ product.title }}
+                                    </div>
+                                    <span style="color:cyan; float: right; font-size: 1.2em; font-weight: bolder;">{{product.price | currency}}</span><br />
+                                </div>
+                                <div class="incrementbuttons">
+                                    <button ng-style="{'float':'left'}" class="increment">-</button>
+                                    <button ng-style="{'float':'left'}">{{ product.count }}</button>
+                                    <button ng-style="{'float':'left'}" class="increment">+</button>
+                                </div>
+                                <div class="removebtn">
+                                    <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(184, 115, 129);background-color:white"class="remove" ng-click="remove()">Remove</button>
+                                </div>
+                            </div>
+                        
+                            
+                        </li>
+                    </ul>
+                </div>
+                    
+                    <div style="width:100%" class="total">
+                    <h3>Total Price</h3><div style="font-weight:bolder;padding-left: 80%;"class="currency">{{total | currency}}</div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <p style="color:gray; font-weight: bolder; opacity:0.5;">Taxes and fees included at checkout.</p><br />
+                        <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button class="btn button-default-btn-lg">CHECK OUT</button></a>
                     </div>
                 </div>
-                
             </div>
-                
-        </a>
+        </div>
     </div>
-</div>
-
-
-<style>
-
-    </style>
+    
+    <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ng-href="\"></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder" style="color:rgb(19, 28, 33)">
+                <ul class="viewlist nav navbar-nav navbar-center">
+                    <li>
+                        <a ng-href="/apparel">APPAREL</a>
+                    </li>
+                    <li>
+                        <a ng-href="/misc">MISC</a>
+                    </li>
+                    <li>
+                        <a ng-href="/contact">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+            <a data-toggle="modal" data-target="#cartModal" data-backdrop="false">
+                <div class="pull-right">
+                    <div class="cartlabel">
+                        <span>Cart</span>
+                    </div>
+                    <div class="cartlogo nav navbar-nav">
+                        <div class="cartcnt">
+                            <div class="cartnbr">
+                                {{ count > 0 ? count : "" }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                    
+            </a>
+        </div>
+    </div>
+    
+    
+    <style>
+        </style>

@@ -1,25 +1,37 @@
 
 <div id="cartModal"  class="modal">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <a data-dismiss="modal">Close</a>
+        <div class="modal-content"style="background-color:white;">
+            <div class="modal-header"style:"padding-bottom 20px">
+                <div style="color:rgb(221, 217, 204); font-weight:bolder; padding-top:20%;"data-dismiss="modal">Close</div>
             </div>
-            <div class="modal-body">
+            <div style="padding: 3px"class="modal-body">
                 <h3>Your Shopping Cart</h3>
-                <ul class="itemList">
-                    <li class="listItem" ng-repeat="product in products" ng-show="products !== undefined">
-                        <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
-                        <span ng-style="{'float':'left'}">{{ product.title }}</span><br />
+                <ul style="padding: 0px;"class="itemList">
+                    <div class="smallitem"style="width:100%;">
+                    <li class="listItem" style="font-family: rubik; padding-bottom:10px" ng-repeat="product in products" ng-show="products !== undefined">
+                       
+                     <div class="cartimg"style="width:100%;float:left; padding: 10px;"><img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'margin':'10px','background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
+                       <div class="cartdescrip"style="position: relative; top: 2%; right:0%;">
+                        <div style="color:rgb(151, 150, 150);font-size: 20px; font-weight:bolder;"ng-style="{'float':'top,right'}">{{ product.title }}</div><div style="color:cyan">{{product.price | currency}}</div><br /></div>
+                        <div style="width: 100%;text-align: left;padding-right: 65%;"class="removebtn">
+                        <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(184, 115, 129);background-color:white"class="remove" ng-click="remove()">Remove</button>
+                        </div>
+                    </div>
+                    </li>di
                         <span ng-style="{'float':'left'}" class="dec button">-</span>
                         <span ng-style="{'float':'left'}">{{ product.count }}</span>
                         <span ng-style="{'float':'left'}" class="inc button">+</span>
-                        <button ng-click="remove()">Remove</button>
+                        
                     </li>
+                    </div>
                 </ul>
-                <h3>Total Price </h3> <span>{{total}}</span>
-                <p>Taxes and fees included at checkout.</p><br />
-                <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button>CHECK OUT</button></a>
+                <div style="width:100%" class="total">
+                <h3>Total Price</h3><div style="font-weight:bolder;padding-left: 80%;"class="currency">{{total | currency}}</div>
+                </div>
+                <p style="color:gray; font-weight: bolder; opacity:0.5;">Taxes and fees included at checkout.</p><br />
+                <div style="text-align: center;">
+                <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button class="btn button-default-btn-lg">CHECK OUT</button></a></div>
             </div>
         </div>
     </div>

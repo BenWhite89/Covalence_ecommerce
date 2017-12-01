@@ -196,36 +196,40 @@ max-height: 100%;
     padding-top: 5px;
 }
 
+.navftr{
+    height: 5em;
+    border: 0px;
+}
+
 .nav .ftr{
     border: 0px;
 }
 
-.ftr{
-    position: absolute;
-    height: 10%;
-}
-
 .ftrlogo{
-
-    margin-top: 1em;
-    height: 40px;
-    width: 20%;
+    position: relative;
+    top: 1.25em;
+    left: 1.25em;
+    height: 2.2em;
+    width: 15em;
+    max-width: 35%;
     background-image: url("/Images/logo-footer.svg");
     background-repeat: no-repeat;
-    margin-left: 1em;
-    margin-bottom: 1em ;
-    vertical-align: center;
+    background-size: contain;
     float: left;
-    
 }
 
 .ftrtext{
-  margin-top: 1em;
-  float: right;
-  padding-right: 2em;
-  
-  
-    
+    max-width: 50%;
+    margin-top: 1.6em;
+    float: right;
+    padding-right: 2em;
+    color: lightslategrey;
+}
+
+.ftrtext a {
+    font-size: 1em;
+    font-weight: bold;
+    color: lightgrey;
 }
 
 .product{
@@ -261,10 +265,7 @@ max-height: 100%;
     overflow-wrap: break-word
 }
 
-.navftr{
 
-    height: 3em;
-}
 
 .chknum{
 

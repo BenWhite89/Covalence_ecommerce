@@ -49,36 +49,38 @@
             </button>
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder" style="color:rgb(19, 28, 33)">
-            <ul class="nav navbar-nav navbar-center">
+            <ul class="viewlist nav navbar-nav navbar-center">
                 <li>
-                    <a> | </a>
+                    <a ng-href="/apparel">APPAREL</a>
                 </li>
                 <li>
-                    <a ng-href="/apparel">Apparel</a>
+                    <a ng-href="/misc">MISC</a>
                 </li>
                 <li>
-                    <a ng-href="/misc">Misc</a>
+                    <a ng-href="/contact">CONTACT</a>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right pull-right">
-                <li>
-                    <a ng-href="/contact">Contact</a>
-                </li>
-                <li>
-                    <a data-toggle="modal" data-target="#cartModal" data-backdrop="false" >Cart</a>
-                    <!-- <div class="cartcnt nav navbar-nav pull-right"> {{ count > 0 ? count : "" }}</div> -->
-                </li>
-                    
-                
             </ul>
         </div>
         <a data-toggle="modal" data-target="#cartModal" data-backdrop="false">
-            <div class="cartcnt nav navbar-nav pull-right"><div class="cartlogo" style="height:50px; width:50px; margin-right:30%;padding-right:30%; "><img src="/Images/cart.png" style="height: 40px; width: 50px;object-fit:contain;padding-right: 0px;margin-left:-40%;"></div> {{ count > 0 ? count : "" }}</div>
+            <div class="pull-right">
+                <div class="cartlabel">
+                    <span>Cart</span>
+                </div>
+                <div class="cartlogo nav navbar-nav">
+                    <div class="cartcnt">
+                        <div class="cartnbr">
+                            {{ count > 0 ? count : "" }}
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+                
         </a>
     </div>
 </div>
 
 
 <style>
-    
+
     </style>

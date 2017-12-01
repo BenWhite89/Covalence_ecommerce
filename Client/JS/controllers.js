@@ -194,10 +194,6 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
                 abbreviation: "DC"
             },
             {
-                name: "Federated States Of Micronesia",
-                abbreviation: "FM"
-            },
-            {
                 name: "Florida",
                 abbreviation: "FL"
             },
@@ -308,10 +304,6 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
             {
                 name: "North Dakota",
                 abbreviation: "ND"
-            },
-            {
-                name: "Northern Mariana Islands",
-                abbreviation: "MP"
             },
             {
                 name: "Ohio",

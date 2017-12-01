@@ -17,7 +17,7 @@
                                     <span style="color:cyan; float: right; font-size: 1.2em; font-weight: bolder;">{{product.price | currency}}</span><br />
                                 </div>
                                 <div class="incrementbuttons">
-                                    <button ng-style="{'float':'left'}" class="increment" ng-click="decreaseCount(product)">-</button>
+                                    <button ng-style="{'float':'left', 'border-top-left-radius':'50%', 'border-bottom-left-radius':'50%'}" class="increment" ng-click="decreaseCount(product)">-</button>
                                     <span ng-style="{'float':'left', 'border':'1px lightslategrey solid', 'width':'2em', 'text-align':'center'}">{{ product.count }}</span>
                                     <button ng-style="{'float':'left'}" class="increment" ng-click="increaseCount(product)">+</button>
                                 </div>

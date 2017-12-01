@@ -1,7 +1,6 @@
 <div ng-style="{'width':'100%', 'overflow':'scroll'}">
-    <div class="banner" ng-style="{'background-image':'url(./Images/covalence-store-{{category}}-hero.jpg)'}">
+    <img class="banner1" src="./Images/covalence-store-{{category}}-hero.jpg" width="100%" style="position: relative; top: -4em; left:0;">
 
-    </div>
     <ul class="productlist">
         <div class="product" ng-repeat="product in products | filter:category">
             <a ng-href="/{{ product.productId }}/product">
@@ -14,4 +13,11 @@
 </div>
 
         <store-Ftr></store-Ftr>
+
+<style>
+    banner1 {
+        position: relative;
+        overflow: visible;
+    }
+</style>
         

@@ -99,9 +99,9 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
             let messageItems = "";
             $scope.products.forEach(function(element) {
                 if (element.count === 1) {
-                    messageItems += `${element.count}  ${element.title} for ${element.count * element.price}\n`;
+                    messageItems += `${element.count}  ${element.title} for $${element.count * element.price}\n`;
                 } else {
-                    messageItems += `${element.count}  ${element.title}s ${element.count * element.price}\n`;
+                    messageItems += `${element.count}  ${element.title}s for $${element.count * element.price}\n`;
                 };
             });
             if ($scope.purchase.method === "cc") {
@@ -116,7 +116,7 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
                         })
                         purchase.$save().then((result) => {
                             
-                            let message = `Thank you for your purchase. Your items are listed below. \n \n ${messageItems} \n \n Grand Total: ${$scope.total}`
+                            let message = `Thank you for your purchase. Your items are listed below. \n \n ${messageItems} \n \n Grand Total: $${$scope.total}`
                             let receipt = new Contact({
                                 toEmail: $scope.customer.email,
                                 subject: `Receipt for Your Order from Covalence`,

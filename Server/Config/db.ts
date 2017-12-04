@@ -41,7 +41,6 @@ function queryDB(procedureName: string, args: Array<any>) {
                 reject(err);
             } else {
                 let callString = `CALL ${procedureName} (${placeholder(args)});`;
-                console.log(callString);
                 connection.query(callString, args, function(err, resultsets) {
                     if (err) {
                         connection.release();

@@ -29,7 +29,7 @@ angular.module('store.services', [])
                 } else {
                     cartList.push(product);
                 }
-                
+
             }
             $rootScope.count += 1;
             $rootScope.total += product.price;
@@ -37,20 +37,13 @@ angular.module('store.services', [])
 
         function removeItem(product) {
             let index = findInArray(cartList, product.productId);
-            console.log(index);
 
             if (index !== null && cartList[index].count > 1) {
-                console.log('1');
-                console.log(cartList);
                 cartList[index].count -= 1;
-                console.log(cartList);
                 $rootScope.count -= 1;
                 $rootScope.total -= product.price;
             } else if(index !== null && cartList[index].count === 1) {
-                console.log('2');
-                console.log(cartList);
                 cartList.splice(index, 1);
-                console.log(cartList);
                 $rootScope.count -= 1;
                 $rootScope.total -= product.price;
             }
@@ -63,30 +56,16 @@ angular.module('store.services', [])
                 $rootScope.count -= cartList[index].count;
                 $rootScope.total -= (cartList[index].count * cartList[index].price);
                 cartList.splice(index,1);
-                
+
             }
         }
 
         function getTotal() {
-            // cartList.forEach(function(element) {
-            //     total += (element.price * element.count);
-            // })
             return $rootScope.total;
         }
 
         function getCount() {
             return count;
-
-            // for (let i = 0; i < cartList.length; i++) {
-            //     count += cartList[i].count;
-            // }
-
-            // if (count) {
-            //     $rootScope.cartCount = count;
-            // } else {
-            //     $rootScope.cartCount = 0;
-            // }
-
         }
 
         function findInArray(array, id) {

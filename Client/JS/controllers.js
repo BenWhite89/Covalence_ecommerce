@@ -6,7 +6,6 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
 
     .controller('NavbarController', ['$scope', '$rootScope', '$location', 'CartService', function($scope, $rootScope, $location, CartService) {
         $scope.products = CartService.getCart();
-        console.log($scope.products);
         
         $scope.checkout = function() {
             $location.url('/checkout');
@@ -14,7 +13,6 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
         }
 
         $scope.increaseCount = function(item) {
-            console.log(item)
             CartService.addItem(item);
             $scope.products = CartService.getCart();
             $scope.total = CartService.getTotal();
@@ -61,27 +59,21 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
                 message: $scope.message
             })
 
-            console.log(contact);
-
-            // contact.$save(function() {
-            //     alert('Thank you for your message. I will respond shortly.')
-            // }, function(err) {
-            //     alert(err);
-            // })
+            contact.$save(function() {
+                alert('Thank you for your message. We will respond shortly.')
+            }, function(err) {
+                alert(err);
+            })
         }
     }])
 
-    .controller('CheckoutController', ['$scope', 'Purchase', 'CartService', function($scope, Purchase, CartService) {
-        // let elements = stripe.elements();
-        // let card = elements.create('card');
-        
-        
+    .controller('CheckoutController', ['$scope', '$location', 'Contact', 'Purchase', 'CartService', function($scope, $location, Contact, Purchase, CartService) {
+        let elements = stripe.elements();
+        let card = elements.create('card');
 
-        // card.mount('#card-field');
+        card.mount('#card-field');
 
         $scope.products = CartService.getCart();
-
-
         $scope.purchase = {};
         $scope.total = CartService.getTotal();
 
@@ -103,55 +95,48 @@ angular.module('store.controllers', ['ngResource', 'ngRoute'])
             $scope.total = CartService.getTotal();
         }
 
-        // $scope.process = function() {
-        //     if ($scope.purchase.method === "cc") {
+        $scope.process = function() {
+            let messageItems = "";
+            $scope.products.forEach(function(element) {
+                if (element.count === 1) {
+                    messageItems += `${element.count}  ${element.title} for ${element.count * element.price}\n`;
+                } else {
+                    messageItems += `${element.count}  ${element.title}s ${element.count * element.price}\n`;
+                };
+            });
+            if ($scope.purchase.method === "cc") {
+                stripe.createToken(card).then((result) => {
+                    if (result.error) {
+                        $scope.error = result.error.message;
+                    } else {
+                        let purchase = new Purchase({
+                            token: result.token.id,
+                            amount: $scope.total * 100,
+                            products: $scope.products
+                        })
+                        purchase.$save().then((result) => {
+                            
+                            let message = `Thank you for your purchase. Your items are listed below. \n \n ${messageItems} \n \n Grand Total: ${$scope.total}`
+                            let receipt = new Contact({
+                                toEmail: $scope.customer.email,
+                                subject: `Receipt for Your Order from Covalence`,
+                                message: message
+                            })
+                            receipt.$save({id: '1'}, function() {
+                                console.log('success');
+                            }, function(err) {
+                                alert(err);
+                            });
+                        });
+                    $scope.error = ''
+                    $location.url('/');
+                    }
+                });
+            } else  {
+                $scope.error = "Sorry, we do not accept PayPal at this time."
+            }
+        }
 
-
-        //         stripe.createToken(card).then((result) => {
-        //         if (result.error) {
-        //             $scope.error = result.error.message;
-        //         } else {
-        //             let purchase = new Purchase({
-        //                 token: result.token,
-        //                 amount: $scope.purchase.total
-        //             })
-        //             purchase.$save();
-        //             $scope.error = ''
-        //         }
-        //         });
-
-        //         //create customer object for email receipt
-        //         let message = ''
-        //         let receipt = new Contact({
-        //             toEmail: $scope.customer.email,
-        //             //subject: `Receipt for Order ${placeholder}`
-        //             //message: message
-        //         })
-
-        //         receipt.$get(function() {
-        //             //nothing
-        //         }, function(err) {
-        //             alert(err);
-        //         });
-
-        //         receipt
-        //     } else  {
-        //         $scope.error = "Sorry, we do not accept PayPal at this time."
-        //     }
-        // }
-        $scope.years = [];
-        let now = new Date();
-        for (let i = 0; i < 20; i++) {
-            $scope.years.push(now.getFullYear() + i);
-        };
-        $scope.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        
-
-        $scope.card = {};
-
-        $scope.card.month = $scope.months[0];
-        $scope.card.year = $scope.years[0];
-        
         $scope.states = [
             {
                 name: "Alabama",

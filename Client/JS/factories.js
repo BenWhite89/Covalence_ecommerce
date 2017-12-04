@@ -5,7 +5,7 @@ angular.module('store.factories', ['ngResource'])
     }])
 
     .factory('Contact', ['$resource', function($resource) {
-        return $resource('/api/contact', {}, {});
+        return $resource('/api/contact/:id', { id: '@id' }, {});
     }])
 
     .factory('Product', ['$resource', function($resource) {

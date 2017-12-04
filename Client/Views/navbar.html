@@ -2,39 +2,38 @@
         <div class="modal-dialog">
             <div class="modal-content"style="background-color:white;">
                 <div class="modal-header"style:"padding-bottom 20px">
-                    <div class="close" style="font-weight:bolder;"data-dismiss="modal">Close</div>
+                    <span class="close" style="font-weight:bolder; color:white; float: left; margin: 6.5% 0 0 5%;"data-dismiss="modal">Close</span>
                 </div>
-                <div style="padding: 3px"class="modal-body">
+                <div class="modal-body">
                     <h3>Your Shopping Cart</h3>
-                    <ul style="padding: 0px;"class="itemList">
+                    <ul style="padding: 0px; margin-top: 1em;"class="itemList">
                         <li class="listItem" style="font-family: rubik; margin-bottom: 1em; height: 6em;" ng-repeat="product in products" ng-show="products !== undefined">
                             <div class="cartimg"style="width:100%;float:left; padding: 10px;">
-                                <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'margin':'10px','background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
+                                <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'margin':'10px','background-size':'cover', 'border-radius':'50%'}" ng-src="../Images/{{ product.imageUrl }}">
                                 <div class="cartdescrip"style="position: relative; top: 2%; right:0%; margin-bottom: 1em;">
                                     <div style="color:rgb(151, 150, 150);font-size: 1.2em; font-weight:bolder; float: left;">
                                     {{ product.title }}
                                     </div>
-                                    <span style="color:cyan; float: right; font-size: 1.2em; font-weight: bolder;">{{product.price | currency}}</span><br />
+                                    <span style="color:cyan; float: right; font-size: 1.2em; font-weight: bolder;padding-right: 1em;">{{product.price | currency}}</span><br />
                                 </div>
-                                <div class="incrementbuttons">
-                                    <button ng-style="{'float':'left', 'border-top-left-radius':'50%', 'border-bottom-left-radius':'50%'}" class="increment" ng-click="decreaseCount(product)">-</button>
-                                    <span ng-style="{'float':'left', 'border':'1px lightslategrey solid', 'width':'2em', 'text-align':'center'}">{{ product.count }}</span>
-                                    <button ng-style="{'float':'left'}" class="increment" ng-click="increaseCount(product)">+</button>
-                                </div>
-                                <div class="removebtn">
-                                    <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(184, 115, 129);background-color:white"class="remove" ng-click="deleteItem(product)">Remove</button>
+                                <div class="modify-cart">
+                                    <div class="incrementbuttons">
+                                        <button ng-style="{'float':'left', 'border-top-left-radius':'50%', 'border-bottom-left-radius':'50%'}" class="increment" ng-click="decreaseCount(product)">-</button>
+                                        <span ng-style="{'float':'left', 'border':'1px lightslategrey solid', 'width':'2em', 'text-align':'center'}">{{ product.count }}</span>
+                                        <button ng-style="{'float':'left'}" class="increment" ng-click="increaseCount(product)">+</button>
+                                    </div>
+                                    <div class="removebtn">
+                                        <button style="border: 0px;padding-top:5px; padding-bottom:5px; padding-right: 15px;padding-left:15px; left:0px; color:rgb(184, 115, 129);background-color:white"class="remove" ng-click="deleteItem(product)">Remove</button>
+                                    </div>
                                 </div>
                             </div>
-                        
-                            
                         </li>
                     </ul>
                 </div>
-                    
-                    <div style="width:100%" class="total">
-                    <h3>Total Price</h3><div style="font-weight:bolder;padding-left: 80%;"class="currency">{{total | currency}}</div>
+                    <div style="width:100%; margin: 2em 0 2em 0; padding: 2em 2em 2em 2em;" class="total">
+                        <div style="float:left; font-size: 2em; font-weight: bolder; ">Total Price</div>
+                        <div style="font-weight:bolder; font-size: 2em; float:right;"class="currency">{{total | currency}}</div>
                     </div>
-                    
                     <div style="text-align: center;">
                         <p style="color:gray; font-weight: bolder; opacity:0.5;">Taxes and fees included at checkout.</p><br />
                         <a data-toggle="modal" data-target="#cartModal" ng-href="/checkout"><button class="btn button-default-btn-lg">CHECK OUT</button></a>
@@ -43,7 +42,6 @@
             </div>
         </div>
     </div>
-    
     <div id="custom-bootstrap-menu" class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -70,9 +68,9 @@
             </div>
             <a data-toggle="modal" data-target="#cartModal" data-backdrop="false">
                 <div class="pull-right">
-                    <div class="cartlabel">
+                    <!-- <div class="cartlabel">
                         <span>Cart</span>
-                    </div>
+                    </div> -->
                     <div class="cartlogo nav navbar-nav">
                         <div class="cartcnt">
                             <div class="cartnbr">

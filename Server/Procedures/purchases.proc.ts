@@ -1,10 +1,10 @@
 import * as db from '../Config/db';
 import {models} from '../Models/models.d';
 
-export function createPurchase(stripeId: string, price: number): Promise<models.IId> {
-    return db.row('CreatePurchase', [stripeId, price]);
+export function createPurchase(price: number, stripeId: string): Promise<models.IId> {
+    return db.row('CreatePurchase', [price, stripeId]);
 }
 
-export function createPurchasesProducts(productId: number, purchaseId: number) {
-    return db.empty('CreatePurchasesProducts', [productId, purchaseId]);
+export function createPurchasesProducts(product: any, purchaseId: number) {
+    return db.empty('CreatePurchasesProducts', [product.productId, purchaseId, product.count]);
 }

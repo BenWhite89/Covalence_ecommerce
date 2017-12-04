@@ -1,11 +1,11 @@
-<div style="overflow: auto; margin-bottom: 4em;">
+<div style="overflow: visible; margin-bottom: 4em; height:80%;">
     
     <div class="product" ng-style="{'float':'left','margin':'4em', 'padding':'0'}">
-        <img ng-src="../Images/{{product.imageUrl}}" ng-style="{'width':'300px', 'height':'300px'}">
+        <img ng-src="../Images/{{product.imageUrl}}" ng-style="{'height':'auto%', 'width':'100%'}">
     </div>
-    <div ng-style="{'float':'left', 'width':'40%', 'height':'14em', 'margin-top':'5em', 'margin-left':'5em'}">
-        <span class="singlev">{{product.price | currency}}</span><br />
-        <span class="singlev">{{product.title}}</span><br />
+    <div ng-style="{'float':'left', 'width':'40%', 'height':'14em', 'margin':'5em 0em 18em 5em'}">
+        <span class="singlev">{{product.price | currency}}</span><br /><br />
+        <span class="singlev">{{product.title}}</span><br /><br />
         <span style="font-size: 1em; margin-top: 1em; margin-bottom: 4em;">{{product.description}}</span><br />
         <button style="margin-top: 2em;" class="btn btn-lg btn-default" ng-click="addToCart()">ADD TO CART</button>
     </div>

@@ -13,6 +13,6 @@ export declare namespace models {
         imageUrl: string
     }
     interface IId {
-        purchaseId: number
+        id: number
     }
 }

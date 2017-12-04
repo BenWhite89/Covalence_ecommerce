@@ -1,5 +1,5 @@
-<div ng-style="{'width':'100%', 'overflow':'scroll'}">
-    <img class="banner1" src="./Images/covalence-store-{{category}}-hero.jpg" width="100%" style="position: relative; top: -4em; left:0;">
+<div ng-style="{'width':'100%','overflow':'auto', 'position':'relative', 'top':'-70px', 'left':'0', 'margin-bottom':'5em'}">
+    <img class="banner1" src="./Images/covalence-store-{{category}}-hero.jpg" width="100%" style="position: relative;">
 
     <ul class="productlist">
         <div class="product" ng-repeat="product in products | filter:category">
@@ -17,7 +17,6 @@
 <style>
     banner1 {
         position: relative;
-        overflow: visible;
     }
 </style>
         

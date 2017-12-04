@@ -1,6 +1,6 @@
 <div class="checkoutContainer">
     <div class="checkoutform">
-        <form class="form-inline"ng-submit="process()">
+        <form class="form-inline" ng-submit="process()">
             <div class"youremail">
                 <div class="col chknum">1</div>
                 <text class="chktxt">Your Email</text>
@@ -20,31 +20,40 @@
             <div class="billaddr">
                 <div class="row">
                     <div class="col">
-                        <input class="form-control" type="text" placeholder="First Name" ng-model="customer.firstName">
-                        <input class="form-control" type="text" placeholder="Last Name" ng-model="customer.lastName">
+                        <input class="form-control" style="width: 15em" type="text" placeholder="First Name" ng-model="customer.firstName">
+                        <input class="form-control" style="width: 15em" type="text" placeholder="Last Name" ng-model="customer.lastName">
                     </div>
                 </div>
-                <br />
                 <div class="row">
                     <div class="col">
-                        <input class="form-control" type="text" placeholder="Company (optional)" ng-model="customer.company">
-                        <input class="form-control" type="number" placeholder="phone #" ng-model="customer.phone">
-                        <br />
-                        <input class="form-control" type="text" placeholder="Address 1" ng-model="customer.address1">
-                        <input class="form-control" type="text" placeholder="Address 2 (optional)" ng-model="customer.address2">
-                        <br />
-                        <input class="form-control" type="text" placeholder="City" ng-model="customer.city">
-                        <select class="form-control"name="state" ng-model="customer.state" >
-                            <option ng-repeat="state in states" value="{{ state.abbreviation }}">{{ state.name }}</option>
-                        </select><br />
-                        <input class="form-control" type="number" placeholder="zip code" ng-model="customer.zip">
-                        <select class="form-control" name="Country" ng-model="customer.country">
-                            <option value="USA">United States</option>
-                            <option value="Canada">Canada</option>
-                        </select>
-                        <br /><br />
+                        <input class="form-control" style="width: 15em" type="text" placeholder="Company (optional)" ng-model="customer.company">
+                        <input class="form-control" style="width: 15em" type="number" placeholder="phone #" ng-model="customer.phone">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control" style="width: 18em" type="text" placeholder="Address 1" ng-model="customer.address1">
+                        <input class="form-control" style="width: 12em" type="text" placeholder="Address 2 (optional)" ng-model="customer.address2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control inputbox" style="width: 15em" type="text" placeholder="City" ng-model="customer.city">
+                        <select class="form-control inputbox" style="width: 15em" name="state" ng-model="customer.state" ng-options="state.name for state in states" ng-init="customer.state = { name: 'State'}"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control inputbox" style="width: 12em" type="number" placeholder="zip code" ng-model="customer.zip">
+                        <select class="form-control inputbox" style="width: 18em" name="Country" ng-model="customer.country" ng-init="customer.country = 'United States'">
+                            <option value="USA" select="selected">United States</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+                    </div>
+                </div>
+                <br /><br />
+                    
+            
             </div>
             <div class="pmtbox">
                 <div class="yourpmt">
@@ -53,27 +62,28 @@
                 </div>
                 </br>
                 <div class="crdpmtbox">
-                    <div class="ccBox">
-                        <div class="crdimg">
-                            <div class="ccRadio">
-                                <input type="radio" name="method" value="cc" ng-model="purchase.method" checked>  Credit Card
-                                <img src="/Images/mastercard.png"><img src="/Images/visa.png"><img src="/Images/discover.png"><img src="/Images/american-express.png">
+                        <div class="ccBox">
+                            <div class="crdimg">
+                                <div class="ccRadio">
+                                    <input type="radio" name="method" value="cc" ng-model="purchase.method" checked>  Credit Card
+                                    <img src="/Images/mastercard.png"><img src="/Images/visa.png"><img src="/Images/discover.png"><img src="/Images/american-express.png">
+                                </div>
+                                <div class="ccFields">
+                                    <div id="card-field">
+
+                                    </div>
+                                    <!-- <input class="cardField" type="number" placeholder="CC#" ng-model="customer.card"><br/>
+                                    Expiration <select class="" name="month" ng-model="card.month" ng-options="month for month in months"  ng-init="months[0]"></select>
+                                    <select class="" name="year" ng-model="card.year" ng-options="year for year in years" ng-init="years[0]"></select>
+                                    <input class="cvc" name="cvc" ng-model="customer.cvc" maxlength="3"><br/> -->
+                                    <p>{{ error }}</p><br />
+                                </div>
                             </div>
-                            <div class="ccFields">
-                                <input class="cardField" type="number" placeholder="CC#" ng-model="customer.card"><br/>
-                                Expiration <select class="" name="month" ng-model="card.month" ng-options="month for month in months"  ng-init="months[0]"></select>
-                                <select class="" name="year" ng-model="card.year" ng-options="year for year in years" ng-init="years[0]"></select>
-                                <input class="cvc" name="cvc" ng-model="customer.cvc" maxlength="3"><br/>
-                                <p>{{ error }}</p><br />
-                            </div>
-                            
+                        </div>
+                        <div class="ppBox">
+                            <input type="radio" name="method" value="paypal" ng-model="purchase.method"> <img src="/Images/paypal.png"> Pay with PayPal<br/><br/>
                         </div>
                     </div>
-                    <div class="ppBox">
-                        <input type="radio" name="method" value="paypal" ng-model="purchase.method">  Pay with PayPal<br/><br/>
-                    </div>
-                        
-                </div>
             </div>
             <div class="submitBox">
                 <label class="submitLabel" for="checkoutSubmit">Almost done! Click the submit button to process your payment.</label><br />
@@ -84,27 +94,36 @@
 
 
     <div class="cartview">
-        <h2>Your Shopping Cart</h2><br />
-        <a ng-href="/apparel"class="btn btn-default">Cancel and Continue Shopping</a>
-        <br />
-        <ul class="itemList">
-            <li class="listItem" ng-repeat="product in products" ng-show="products !== undefined">
-                <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover'}" ng-src="../Images/{{ product.imageUrl }}">
-                <span ng-style="{'float':'left'}">{{ product.title }}</span><br/> 
-                <button ng-style="{'float':'left'}" class="increment" ng-click="decreaseCount(product)">-</button>
-                <span class="checkoutCount" ng-style="{'float':'left'}">{{ product.count }}</span>
-                <button ng-style="{'float':'left'}" class="increment" ng-click="increaseCount(product)">+</button>
-                <button class="removebutton" ng-click="deleteItem(product)">Remove</button>
-            </li>
-        </ul>
-        <br />
-        <h2>Order Summary</h2>
-        <br />
-        <form class="discount">
-            <input type="text" ng-model="discountCode" placeholder="Discount Code">
-            <input type="submit" value="Apply">
-        </form>
-        <h4 ng-style="{'float':'left'}">Order Total: </h4> <span ng-style="{'float':'left'}">{{ total }}</span>
+        <div style="align-content: center; margin-left: 20%; width:80%" >
+            <h2>Your Shopping Cart</h2><br />
+            <a ng-href="/apparel"class="btn btn-default" style="max-width: 80%; white-space: normal">Cancel and Continue Shopping</a>
+            <br /><br />
+        </div>
+        <div>
+            <ul class="itemList">
+                <li class="listItem" ng-repeat="product in products" ng-show="products !== undefined">
+                    <img ng-style="{'float':'left', 'width':'50px', 'height':'50px', 'background-size':'cover', 'border-radius':'50%'}" ng-src="../Images/{{ product.imageUrl }}">
+                    <span ng-style="{'float':'left'}">{{ product.title }}</span><br/> 
+                    <button ng-style="{'float':'left'}" class="increment" ng-click="decreaseCount(product)">-</button>
+                    <span class="checkoutCount" ng-style="{'float':'left'}">{{ product.count }}</span>
+                    <button ng-style="{'float':'left'}" class="increment" ng-click="increaseCount(product)">+</button>
+                    <button class="removebutton" ng-click="deleteItem(product)">Remove</button>
+                </li>
+            </ul>
+        </div>
+        <div class="">
+            <h2>Order Summary</h2>
+            <br />
+            <form class="discount">
+                <input type="text" ng-model="discountCode" placeholder="Discount Code">
+                <input type="submit" value="Apply">
+            </form>
+            <div style="width:100%; margin: 2em 0 2em 0; padding: 2em 2em 2em 2em;" class="total">
+                    <div style="float:left; font-size: 2em; font-weight: bolder; ">Order Total: </div>
+                    <div style="font-weight:bolder; font-size: 2em; float:right;"class="currency">{{total | currency}}</div>
+                </div>
+        </div>
+        
     </div>
 </div>
 
